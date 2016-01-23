@@ -30,7 +30,18 @@ void PrepBallIntake::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void PrepBallIntake::Execute() {
-
+	if (RobotMap::ballIntakeLowerLimit->Get() == 1){
+		RobotMap::ballIntakePrepMotor->Set(1.0);
+		if (RobotMap::ballIntakeUpperLimit->Get() == 1){
+			RobotMap::ballIntakePrepMotor->Set(0);
+		}
+	}
+	if (RobotMap::ballIntakeUpperLimit->Get() == 1){
+		RobotMap::ballIntakePrepMotor->Set(1.0);
+		if (RobotMap::ballIntakeLowerLimit->Get() == 1){
+			RobotMap::ballIntakePrepMotor->Set(0);
+		}
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
