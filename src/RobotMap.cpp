@@ -21,9 +21,9 @@ std::shared_ptr<SpeedController> RobotMap::driveTrainDriveTalonMidRight;
 std::shared_ptr<SpeedController> RobotMap::driveTrainDriveTalonBackLeft;
 std::shared_ptr<SpeedController> RobotMap::driveTrainDriveTalonBackRight;
 std::shared_ptr<SpeedController> RobotMap::flapperFlapperMotor;
-std::shared_ptr<DigitalInput> RobotMap::flapperTopLimit;
-std::shared_ptr<DigitalInput> RobotMap::flapperBottomLimit;
-std::shared_ptr<Encoder> RobotMap::flapperQuadratureEncoder1;
+std::shared_ptr<DigitalInput> RobotMap::flapperFlapperTopLimit;
+std::shared_ptr<DigitalInput> RobotMap::flapperFlapperBottomLimit;
+std::shared_ptr<Encoder> RobotMap::flapperFlapperEncoder;
 std::shared_ptr<SpeedController> RobotMap::ballIntakePrepMotor;
 std::shared_ptr<SpeedController> RobotMap::ballIntakeShootMotor;
 std::shared_ptr<DigitalInput> RobotMap::ballIntakeLowerLimit;
@@ -53,19 +53,19 @@ void RobotMap::init() {
     driveTrainDriveTalonBackRight.reset(new Talon(5));
     lw->AddActuator("DriveTrain", "DriveTalonBackRight", (Talon&) driveTrainDriveTalonBackRight);
     
-    flapperFlapperMotor.reset(new VictorSP(6));
-    lw->AddActuator("Flapper", "FlapperMotor", (VictorSP&) flapperFlapperMotor);
+    flapperFlapperMotor.reset(new Talon(6));
+    lw->AddActuator("Flapper", "FlapperMotor", (Talon&) flapperFlapperMotor);
     
-    flapperTopLimit.reset(new DigitalInput(0));
-    lw->AddSensor("Flapper", "Top Limit", flapperTopLimit);
+    flapperFlapperTopLimit.reset(new DigitalInput(0));
+    lw->AddSensor("Flapper", "FlapperTopLimit", flapperFlapperTopLimit);
     
-    flapperBottomLimit.reset(new DigitalInput(1));
-    lw->AddSensor("Flapper", "Bottom Limit", flapperBottomLimit);
+    flapperFlapperBottomLimit.reset(new DigitalInput(1));
+    lw->AddSensor("Flapper", "FlapperBottomLimit", flapperFlapperBottomLimit);
     
-    flapperQuadratureEncoder1.reset(new Encoder(2, 3, false, Encoder::k4X));
-    lw->AddSensor("Flapper", "Quadrature Encoder 1", flapperQuadratureEncoder1);
-    flapperQuadratureEncoder1->SetDistancePerPulse(1.0);
-    flapperQuadratureEncoder1->SetPIDSourceType(PIDSourceType::kRate);
+    flapperFlapperEncoder.reset(new Encoder(2, 3, false, Encoder::k4X));
+    lw->AddSensor("Flapper", "FlapperEncoder", flapperFlapperEncoder);
+    flapperFlapperEncoder->SetDistancePerPulse(1.0);
+    flapperFlapperEncoder->SetPIDSourceType(PIDSourceType::kRate);
     ballIntakePrepMotor.reset(new Talon(7));
     lw->AddActuator("BallIntake", "PrepMotor", (Talon&) ballIntakePrepMotor);
     

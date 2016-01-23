@@ -124,7 +124,7 @@ Children:
           default: Talon
           name: Type
           validators: null
-          value: VictorSP
+          value: Talon
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id002
           default: '0'
@@ -144,7 +144,7 @@ Children:
           validators: &id005 [DigitalChannel]
           value: '0'
       Base: Limit Switch
-      Name: Top Limit
+      Name: FlapperTopLimit
     - Children: []
       Properties:
         Input Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
@@ -154,7 +154,7 @@ Children:
           validators: *id005
           value: '1'
       Base: Limit Switch
-      Name: Bottom Limit
+      Name: FlapperBottomLimit
     - Children: []
       Properties:
         Channel A Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
@@ -190,7 +190,7 @@ Children:
           validators: [DigitalChannel]
           value: '3'
       Base: Quadrature Encoder
-      Name: Quadrature Encoder 1
+      Name: FlapperEncoder
     Properties:
       Default command parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
@@ -499,10 +499,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: BallIntake}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id010 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id010
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -511,8 +511,9 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\dphey\workspace',
-    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\dphey\Programming\Robotics'}
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Eagle
+      Robotics\workspace', extension: null, folder: true, name: Eclipse Workspace,
+    validators: null, value: 'C:\Users\Eagle Robotics\workspace'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -530,9 +531,9 @@ Properties:
     name: Export Subsystems, validators: null, value: false}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\dphey\',
-    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Eagle
-      Robotics'}
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Eagle
+      Robotics\', extension: null, folder: true, name: Wiring file location, validators: null,
+    value: 'C:\Users\Eagle Robotics'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
 Base: Robot

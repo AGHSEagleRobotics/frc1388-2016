@@ -30,9 +30,9 @@ public:
 	static std::shared_ptr<SpeedController> driveTrainDriveTalonBackLeft;
 	static std::shared_ptr<SpeedController> driveTrainDriveTalonBackRight;
 	static std::shared_ptr<SpeedController> flapperFlapperMotor;
-	static std::shared_ptr<DigitalInput> flapperTopLimit;
-	static std::shared_ptr<DigitalInput> flapperBottomLimit;
-	static std::shared_ptr<Encoder> flapperQuadratureEncoder1;
+	static std::shared_ptr<DigitalInput> flapperFlapperTopLimit;
+	static std::shared_ptr<DigitalInput> flapperFlapperBottomLimit;
+	static std::shared_ptr<Encoder> flapperFlapperEncoder;
 	static std::shared_ptr<SpeedController> ballIntakePrepMotor;
 	static std::shared_ptr<SpeedController> ballIntakeShootMotor;
 	static std::shared_ptr<DigitalInput> ballIntakeLowerLimit;
