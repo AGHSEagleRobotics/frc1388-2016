@@ -32,23 +32,23 @@ void MoveFlapper::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void MoveFlapper::Execute() {
 float FlapperYAxis = Robot::oi->getOperatorStick()->GetY();
-if(RobotMap::flapperFlapperTopLimit == 1 && FlapperYAxis > 0){
+if(RobotMap::flapperFlapperTopLimit->Get() == 1 && FlapperYAxis > 0){
 
 		FlapperYAxis = 0;
 
 }
-if(RobotMap::flapperFlapperBottomLimit == 1 && FlapperYAxis < 0 ){
+if(RobotMap::flapperFlapperBottomLimit->Get() == 1 && FlapperYAxis < 0 ){
 
 		FlapperYAxis = 0;
 
 }
-if (RobotMap::flapperFlapperEncoder->Get >= MAXENCODERVALUE && FlapperYAxis > 0){
+if (RobotMap::flapperFlapperEncoder->Get() >= MAXENCODERVALUE && FlapperYAxis > 0){
 	FlapperYAxis = 0;
 }
-if (RobotMap::flapperFlapperEncoder->Get <= 0 && FlapperYAxis < 0){
+if (RobotMap::flapperFlapperEncoder->Get() <= 0 && FlapperYAxis < 0){
 	FlapperYAxis = 0;
 }
-if (RobotMap::flapperFlapperBottomLimit == 1){
+if (RobotMap::flapperFlapperBottomLimit->Get() == 1){
 	RobotMap::flapperFlapperEncoder->Reset();
 }
 RobotMap::flapperFlapperMotor->Set(FlapperYAxis);
