@@ -24,7 +24,7 @@ MoveFlapper::MoveFlapper(): Command() {
 
 // Called just before this Command runs the first time
 void MoveFlapper::Initialize() {
-	if (RobotMap::flapperFlapperBottomLimit == 1){
+	if (RobotMap::flapperFlapperBottomLimit.get()){
 		RobotMap::flapperFlapperEncoder->Reset();
 	}
 }
