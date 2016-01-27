@@ -33,6 +33,8 @@ float Drive::Deadband(float input){
 }
 // Called just before this Command runs the first time
 void Drive::Initialize() {
+	RobotMap::driveTrainDriveEncoder->Reset();
+
 	RobotMap::driveTrainDriveTalonBackLeft->Set(0);
 	RobotMap::driveTrainDriveTalonBackRight->Set(0);
 	RobotMap::driveTrainDriveTalonMidLeft->Set(0);

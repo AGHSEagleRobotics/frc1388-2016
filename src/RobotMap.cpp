@@ -20,6 +20,7 @@ std::shared_ptr<SpeedController> RobotMap::driveTrainDriveTalonMidLeft;
 std::shared_ptr<SpeedController> RobotMap::driveTrainDriveTalonMidRight;
 std::shared_ptr<SpeedController> RobotMap::driveTrainDriveTalonBackLeft;
 std::shared_ptr<SpeedController> RobotMap::driveTrainDriveTalonBackRight;
+std::shared_ptr<Encoder> RobotMap::driveTrainDriveEncoder;
 std::shared_ptr<SpeedController> RobotMap::flapperFlapperMotor;
 std::shared_ptr<DigitalInput> RobotMap::flapperFlapperTopLimit;
 std::shared_ptr<DigitalInput> RobotMap::flapperFlapperBottomLimit;
@@ -53,6 +54,10 @@ void RobotMap::init() {
     driveTrainDriveTalonBackRight.reset(new Talon(5));
     lw->AddActuator("DriveTrain", "DriveTalonBackRight", (Talon&) driveTrainDriveTalonBackRight);
     
+    driveTrainDriveEncoder.reset(new Encoder(6, 7, false, Encoder::k4X));
+    lw->AddSensor("DriveTrain", "DriveEncoder", driveTrainDriveEncoder);
+    driveTrainDriveEncoder->SetDistancePerPulse(1.0);
+    driveTrainDriveEncoder->SetPIDSourceType(PIDSourceType::kRate);
     flapperFlapperMotor.reset(new Talon(6));
     lw->AddActuator("Flapper", "FlapperMotor", (Talon&) flapperFlapperMotor);
     
