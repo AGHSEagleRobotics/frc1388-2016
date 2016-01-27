@@ -20,6 +20,8 @@ private:
 	std::shared_ptr<Joystick> rightDriveStick;
 	std::shared_ptr<Joystick> leftDriveStick;
 	std::shared_ptr<Joystick> operatorStick;
+	std::shared_ptr<JoystickButton> flapperHighSetpointButton;
+	std::shared_ptr<JoystickButton> flapperLowSetpointButton;
 	std::shared_ptr<JoystickButton> prepIntake;
 	std::shared_ptr<JoystickButton> ballOut;
 	std::shared_ptr<JoystickButton> ballIn;
