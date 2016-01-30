@@ -51,6 +51,8 @@ OI::OI() {
     SmartDashboard::PutData("FlapperHighSetpoint", new FlapperHighSetpoint());
     SmartDashboard::PutData("FlapperLowSetpoint", new FlapperLowSetpoint());
     SmartDashboard::PutData("AutonDrive", new AutonDrive());
+    SmartDashboard::PutData("FlapperHighSetpoint", new FlapperHighSetpoint());
+    SmartDashboard::PutData("FlapperLowSetpoint", new FlapperLowSetpoint());
     SmartDashboard::PutData("RetractBallIntake", new RetractBallIntake());
     SmartDashboard::PutData("CollectBallIntake", new CollectBallIntake());
     SmartDashboard::PutData("ShootBallIntake", new ShootBallIntake());
