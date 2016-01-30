@@ -37,9 +37,9 @@ OI::OI() {
     operatorStick.reset(new Joystick(0));
     
     flapperHighSetpointButton.reset(new JoystickButton(operatorStick.get(), 1));
-    flapperHighSetpointButton->WhileHeld(new FlapperHighSetpoint());
+    flapperHighSetpointButton->WhenPressed(new FlapperHighSetpoint());
     flapperLowSetpointButton.reset(new JoystickButton(operatorStick.get(), 1));
-    flapperLowSetpointButton->WhileHeld(new FlapperLowSetpoint());
+    flapperLowSetpointButton->WhenPressed(new FlapperLowSetpoint());
     prepIntake.reset(new JoystickButton(operatorStick.get(), 1));
     prepIntake->WhileHeld(new PrepBallIntake());
     ballOut.reset(new JoystickButton(operatorStick.get(), 1));
@@ -48,6 +48,8 @@ OI::OI() {
     ballIn->WhileHeld(new ShootBallIntake());
 
     // SmartDashboard Buttons
+    SmartDashboard::PutData("FlapperHighSetpoint", new FlapperHighSetpoint());
+    SmartDashboard::PutData("FlapperLowSetpoint", new FlapperLowSetpoint());
     SmartDashboard::PutData("AutonDrive", new AutonDrive());
     SmartDashboard::PutData("FlapperHighSetpoint", new FlapperHighSetpoint());
     SmartDashboard::PutData("FlapperLowSetpoint", new FlapperLowSetpoint());
