@@ -31,6 +31,7 @@ public:
 	static std::shared_ptr<SpeedController> ballIntakeShootMotor;
 	static std::shared_ptr<DigitalInput> ballIntakeLowerLimit;
 	static std::shared_ptr<DigitalInput> ballIntakeUpperLimit;
+	static std::shared_ptr<SpeedController> ballIntakeTreadMotor;
 	static std::shared_ptr<SpeedController> driveTrainFrontLeftTalon;
 	static std::shared_ptr<SpeedController> driveTrainFrontRightTalon;
 	static std::shared_ptr<SpeedController> driveTrainBackLeftTalon;
