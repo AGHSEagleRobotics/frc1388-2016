@@ -107,23 +107,23 @@ Children:
           choices: *id004
           default: '0'
           name: Output Channel (PWM)
-          validators: *id003
+          validators: *id005
           value: '7'
       Base: Speed Controller
       Name: PrepMotor
     - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id001
+          choices: *id003
           default: Talon
           name: Type
           validators: null
           value: Talon
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id002
+          choices: *id004
           default: '0'
           name: Output Channel (PWM)
-          validators: *id003
+          validators: *id005
           value: '8'
       Base: Speed Controller
       Name: ShootMotor
@@ -133,7 +133,7 @@ Children:
           choices: *id001
           default: '0'
           name: Input Channel (Digital)
-          validators: &id005 [DigitalChannel]
+          validators: *id002
           value: '4'
       Base: Limit Switch
       Name: LowerLimit
@@ -143,10 +143,26 @@ Children:
           choices: *id001
           default: '0'
           name: Input Channel (Digital)
-          validators: *id005
+          validators: *id002
           value: '5'
       Base: Limit Switch
       Name: UpperLimit
+    - Children: []
+      Properties:
+        Type: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id003
+          default: Talon
+          name: Type
+          validators: null
+          value: TalonSRX
+        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id004
+          default: '0'
+          name: Output Channel (PWM)
+          validators: *id005
+          value: '5'
+      Base: Speed Controller
+      Name: TreadMotor
     Properties:
       Default command parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
@@ -164,24 +180,24 @@ Children:
     Name: BallIntake
   - Children:
     - Children:
-    - Children: []
-      Properties:
-        Type: !!robotbuilder.data.properties.ChoicesProperty
+      - Children: []
+        Properties:
+          Type: !!robotbuilder.data.properties.ChoicesProperty
             choices: *id003
-          default: Talon
-          name: Type
-          validators: null
-          value: Talon
-        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
+            default: Talon
+            name: Type
+            validators: null
+            value: Talon
+          Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
             choices: *id004
-          default: '0'
-          name: Output Channel (PWM)
-          validators: *id003
-          value: '6'
-      Base: Speed Controller
-      Name: FlapperMotor
-    - Children: []
-      Properties:
+            default: '0'
+            name: Output Channel (PWM)
+            validators: *id005
+            value: '0'
+        Base: Speed Controller
+        Name: FrontLeftTalon
+      - Children: []
+        Properties:
           Type: !!robotbuilder.data.properties.ChoicesProperty
             choices: *id003
             default: Talon
@@ -205,15 +221,15 @@ Children:
             validators: null
             value: Talon
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id004
-          default: '0'
+            choices: *id004
+            default: '0'
             name: Output Channel (PWM)
-          validators: *id005
+            validators: *id005
             value: '3'
         Base: Speed Controller
         Name: BackLeftTalon
-    - Children: []
-      Properties:
+      - Children: []
+        Properties:
           Type: !!robotbuilder.data.properties.ChoicesProperty
             choices: *id003
             default: Talon
@@ -221,10 +237,10 @@ Children:
             validators: null
             value: Talon
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id004
-          default: '0'
+            choices: *id004
+            default: '0'
             name: Output Channel (PWM)
-          validators: *id005
+            validators: *id005
             value: '4'
         Base: Speed Controller
         Name: BackRightTalon
@@ -309,12 +325,8 @@ Children:
         name: Default command parameters
         validators: null
         value: []
-      Continuous: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Continuous, validators: null, value: false}
-      F: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: F, validators: null,
-        value: 0.0}
-      Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
-        validators: null, value: 0.2}
+      Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Default Command, type: Command, validators: null, value: None}
       Constants: !!robotbuilder.data.properties.ConstantsProperty
         default: []
         name: Constants
@@ -641,7 +653,43 @@ Children:
         validators: null
         value: []
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: []
+        name: Parameter presets
+        validators: null
+        value: []
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: FlapperLowSetpoint
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: []
+        name: Parameter presets
+        validators: null
+        value: []
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: FlapperHighSetpoint
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: None}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: []
         name: Parameter presets
@@ -651,112 +699,6 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: AutonDrive
-  - Children: []
-    Properties:
-      Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Limit Output, validators: null, value: false}
-      Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default: []
-        name: Parameters
-        validators: null
-        value: []
-      D: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: D, validators: null,
-        value: 0.0}
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: Flapper}
-      Continuous: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Continuous, validators: null, value: false}
-      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id017 []
-        name: Parameter presets
-        validators: null
-        value: *id017
-      Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
-        validators: null, value: 0.2}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-      I: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: I, validators: null,
-        value: 0.0}
-      Period: !!robotbuilder.data.properties.DoubleProperty {default: 0.02, name: Period,
-        validators: null, value: 0.02}
-      Minimum Input: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Minimum Input,
-        validators: null, value: 0.0}
-      Limit Input: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Limit Input, validators: null, value: false}
-      Minimum Output: !!robotbuilder.data.properties.DoubleProperty {default: -1,
-        name: Minimum Output, validators: null, value: -1.0}
-      P: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: P, validators: null,
-        value: 1.0}
-      Input: !!robotbuilder.data.properties.TypeSelectionProperty
-        default: None
-        name: Input
-        type: PIDSource
-        validators: &id019 [TypeDropdownSelected]
-        value: Flapper FlapperEncoder
-      Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Maximum Output,
-        validators: null, value: 1.0}
-      Output: !!robotbuilder.data.properties.TypeSelectionProperty
-        default: None
-        name: Output
-        type: PIDOutput
-        validators: &id020 [TypeDropdownSelected]
-        value: Flapper FlapperMotor
-      Maximum Input: !!robotbuilder.data.properties.DoubleProperty {default: 5, name: Maximum Input,
-        validators: null, value: 5.0}
-    Base: PID Command
-    Name: FlapperLowSetpoint
-  - Children: []
-    Properties:
-      Limit Output: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Limit Output, validators: null, value: false}
-      Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default: []
-        name: Parameters
-        validators: null
-        value: []
-      D: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: D, validators: null,
-        value: 0.0}
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: None}
-      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id018 []
-        name: Parameter presets
-        validators: null
-        value: *id018
-      Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
-        validators: null, value: 0.2}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
-      I: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: I, validators: null,
-        value: 0.0}
-      Period: !!robotbuilder.data.properties.DoubleProperty {default: 0.02, name: Period,
-        validators: null, value: 0.02}
-      Minimum Input: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Minimum Input,
-        validators: null, value: 0.0}
-      Limit Input: !!robotbuilder.data.properties.BooleanProperty {default: false,
-        name: Limit Input, validators: null, value: false}
-      Minimum Output: !!robotbuilder.data.properties.DoubleProperty {default: -1,
-        name: Minimum Output, validators: null, value: -1.0}
-      P: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: P, validators: null,
-        value: 1.0}
-      Input: !!robotbuilder.data.properties.TypeSelectionProperty
-        default: None
-        name: Input
-        type: PIDSource
-        validators: *id019
-        value: Flapper FlapperEncoder
-      Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Maximum Output,
-        validators: null, value: 1.0}
-      Output: !!robotbuilder.data.properties.TypeSelectionProperty
-        default: None
-        name: Output
-        type: PIDOutput
-        validators: *id020
-        value: Flapper FlapperMotor
-      Maximum Input: !!robotbuilder.data.properties.DoubleProperty {default: 5, name: Maximum Input,
-        validators: null, value: 5.0}
-    Base: PID Command
-    Name: FlapperHighSetpoint
   Properties: {}
   Base: Commands
   Name: Commands
