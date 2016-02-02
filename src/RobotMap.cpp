@@ -62,7 +62,7 @@ void RobotMap::init() {
     
     flapperFlapperEncoder.reset(new Encoder(2, 3, false, Encoder::k4X));
     lw->AddSensor("Flapper", "FlapperEncoder", flapperFlapperEncoder);
-    flapperFlapperEncoder->SetDistancePerPulse(1.0);
+    flapperFlapperEncoder->SetDistancePerPulse(.05234);
     flapperFlapperEncoder->SetPIDSourceType(PIDSourceType::kRate);
 
 
