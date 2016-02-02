@@ -27,7 +27,7 @@ FlapperLowSetpoint::FlapperLowSetpoint(): Command() {
 void FlapperLowSetpoint::Initialize() {
 
 }
-
+//test
 // Called repeatedly when this Command is scheduled to run
 void FlapperLowSetpoint::Execute() {
 	if(RobotMap::flapperFlapperEncoder->Get() > LOWSETPOINT){
