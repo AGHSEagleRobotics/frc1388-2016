@@ -391,7 +391,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '2'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -420,7 +420,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '3'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -449,7 +449,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '3'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -714,7 +714,8 @@ Children:
         name: Parameters
         validators: null
         value:
-        - *id017
+        - &id018 !!robotbuilder.data.properties.ParameterDescriptor {name: setpoint,
+          type: double}
       Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
         componentName: PID Subsystem
         default: None
@@ -722,14 +723,14 @@ Children:
         validators: &id019 [TypeDropdownSelected]
         value: Flapper
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id018
+        default: []
+        name: Parameter presets
+        validators: null
+        value:
         - !!robotbuilder.data.properties.ParameterSet
           name: HighSetpoint
           parameters:
           - {name: setpoint, type: double, value: '1000'}
-        name: Parameter presets
-        validators: null
-        value: *id018
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Setpoint Command
@@ -742,7 +743,7 @@ Children:
         name: Parameters
         validators: null
         value:
-        - *id017
+        - *id018
       Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
         componentName: PID Subsystem
         default: None
@@ -750,14 +751,14 @@ Children:
         validators: *id019
         value: Flapper
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id020
+        default: []
+        name: Parameter presets
+        validators: null
+        value:
         - !!robotbuilder.data.properties.ParameterSet
           name: LowSetpoint
           parameters:
           - {name: setpoint, type: double, value: '0'}
-        name: Parameter presets
-        validators: null
-        value: *id020
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Setpoint Command
@@ -766,8 +767,9 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Eagle\workspace',
-    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\Eagle\workspace'}
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Ciloz\workspace',
+    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\Ciloz\Desktop\FRC
+      Eagle Robotics\Programming'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -782,10 +784,10 @@ Properties:
   Team Number: !!robotbuilder.data.properties.IntegerProperty {default: 0, name: Team Number,
     validators: null, value: 1388}
   Export Subsystems: !!robotbuilder.data.properties.BooleanProperty {default: true,
-    name: Export Subsystems, validators: null, value: true}
+    name: Export Subsystems, validators: null, value: false}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Eagle\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Ciloz\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Eagle
       Robotics'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
