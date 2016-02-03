@@ -5,5 +5,3 @@ GitVersion.h
 /.settings
 .settings
 /sysProps.xml
-.project
-.cproject
