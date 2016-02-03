@@ -31,6 +31,7 @@ void ShootBallIntake::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShootBallIntake::Execute() {
 	RobotMap::ballIntakeShootMotor->Set(1.0);
+	RobotMap::ballIntakeShootMotor->Set(1.0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -41,6 +42,7 @@ bool ShootBallIntake::IsFinished() {
 // Called once after isFinished returns true
 void ShootBallIntake::End() {
 	RobotMap::ballIntakeShootMotor->Set(ZERO_MOTOR_VALUE);
+	RobotMap::ballIntakePrepMotor->Set(ZERO_MOTOR_VALUE);
 
 }
 

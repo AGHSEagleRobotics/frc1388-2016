@@ -31,6 +31,7 @@ void CollectBallIntake::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CollectBallIntake::Execute() {
 	RobotMap::ballIntakeShootMotor->Set(-1.0);
+	RobotMap::ballIntakePrepMotor->Set(-1.0);
 
 }
 
@@ -42,6 +43,7 @@ bool CollectBallIntake::IsFinished() {
 // Called once after isFinished returns true
 void CollectBallIntake::End() {
 	RobotMap::ballIntakeShootMotor->Set(0);
+	RobotMap::ballIntakePrepMotor->Set(0);
 
 }
 
