@@ -34,6 +34,7 @@ public:
 	static std::shared_ptr<SpeedController> driveTrainBackRightTalon;
 	static std::shared_ptr<RobotDrive> driveTrainRobotDrive41;
 	static std::shared_ptr<Encoder> driveTraindriveEncoder;
+	static std::shared_ptr<AnalogGyro> driveTraindriveGyro;
 	static std::shared_ptr<SpeedController> flapperFlapperMotor;
 	static std::shared_ptr<DigitalInput> flapperFlapperTopLimit;
 	static std::shared_ptr<DigitalInput> flapperFlapperBottomLimit;
