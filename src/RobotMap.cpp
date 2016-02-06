@@ -19,12 +19,15 @@ std::shared_ptr<SpeedController> RobotMap::ballIntakeShootMotor;
 std::shared_ptr<DigitalInput> RobotMap::ballIntakeLowerLimit;
 std::shared_ptr<DigitalInput> RobotMap::ballIntakeUpperLimit;
 std::shared_ptr<SpeedController> RobotMap::ballIntakeTreadMotor;
+std::shared_ptr<AnalogInput> RobotMap::driveTrainPositionSetter;
+std::shared_ptr<AnalogInput> RobotMap::driveTrainAutonDial;
 std::shared_ptr<SpeedController> RobotMap::driveTrainFrontLeftTalon;
 std::shared_ptr<SpeedController> RobotMap::driveTrainFrontRightTalon;
 std::shared_ptr<SpeedController> RobotMap::driveTrainBackLeftTalon;
 std::shared_ptr<SpeedController> RobotMap::driveTrainBackRightTalon;
 std::shared_ptr<RobotDrive> RobotMap::driveTrainRobotDrive41;
 std::shared_ptr<Encoder> RobotMap::driveTraindriveEncoder;
+std::shared_ptr<AnalogGyro> RobotMap::driveTraindriveGyro;
 std::shared_ptr<SpeedController> RobotMap::flapperFlapperMotor;
 std::shared_ptr<DigitalInput> RobotMap::flapperFlapperTopLimit;
 std::shared_ptr<DigitalInput> RobotMap::flapperFlapperBottomLimit;
@@ -51,6 +54,12 @@ void RobotMap::init() {
     ballIntakeTreadMotor.reset(new TalonSRX(5));
     lw->AddActuator("BallIntake", "TreadMotor", (TalonSRX&) ballIntakeTreadMotor);
     
+    driveTrainPositionSetter.reset(new AnalogInput(2));
+    lw->AddSensor("DriveTrain", "PositionSetter", driveTrainPositionSetter);
+    
+    driveTrainAutonDial.reset(new AnalogInput(1));
+    lw->AddSensor("DriveTrain", "AutonDial", driveTrainAutonDial);
+    
     driveTrainFrontLeftTalon.reset(new Talon(0));
     lw->AddActuator("DriveTrain", "FrontLeftTalon", (Talon&) driveTrainFrontLeftTalon);
     
@@ -75,6 +84,9 @@ void RobotMap::init() {
     lw->AddSensor("DriveTrain", "driveEncoder", driveTraindriveEncoder);
     driveTraindriveEncoder->SetDistancePerPulse(0.05234);
     driveTraindriveEncoder->SetPIDSourceType(PIDSourceType::kRate);
+    driveTraindriveGyro.reset(new AnalogGyro(0));
+    lw->AddSensor("DriveTrain", "driveGyro", driveTraindriveGyro);
+    driveTraindriveGyro->SetSensitivity(0.007);
     flapperFlapperMotor.reset(new Talon(6));
     lw->AddActuator("Flapper", "FlapperMotor", (Talon&) flapperFlapperMotor);
     
