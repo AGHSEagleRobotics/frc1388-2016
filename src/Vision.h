@@ -4,8 +4,11 @@ using namespace std;
 
 class Vision{
 	private:
-	AxisCamera & camera;
-	ColorImage & img;
+	ColorImage * img;
+	BinaryImage * binImg;
+	AxisCamera * camera;
+	vector<ParticleAnalysisReport> * particleReport;
+	int AnalyzeParticle();
 	public:
 	Vision();
 };
