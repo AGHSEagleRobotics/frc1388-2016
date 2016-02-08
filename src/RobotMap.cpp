@@ -19,6 +19,8 @@ std::shared_ptr<SpeedController> RobotMap::ballIntakeShootMotor;
 std::shared_ptr<DigitalInput> RobotMap::ballIntakeLowerLimit;
 std::shared_ptr<DigitalInput> RobotMap::ballIntakeUpperLimit;
 std::shared_ptr<SpeedController> RobotMap::ballIntakeTreadMotor;
+std::shared_ptr<AnalogInput> RobotMap::driveTrainPositionSetter;
+std::shared_ptr<AnalogInput> RobotMap::driveTrainAutonDial;
 std::shared_ptr<SpeedController> RobotMap::driveTrainFrontLeftTalon;
 std::shared_ptr<SpeedController> RobotMap::driveTrainFrontRightTalon;
 std::shared_ptr<SpeedController> RobotMap::driveTrainBackLeftTalon;
@@ -51,6 +53,12 @@ void RobotMap::init() {
     
     ballIntakeTreadMotor.reset(new TalonSRX(5));
     lw->AddActuator("BallIntake", "TreadMotor", (TalonSRX&) ballIntakeTreadMotor);
+    
+    driveTrainPositionSetter.reset(new AnalogInput(2));
+    lw->AddSensor("DriveTrain", "PositionSetter", driveTrainPositionSetter);
+    
+    driveTrainAutonDial.reset(new AnalogInput(1));
+    lw->AddSensor("DriveTrain", "AutonDial", driveTrainAutonDial);
     
     driveTrainFrontLeftTalon.reset(new Talon(0));
     lw->AddActuator("DriveTrain", "FrontLeftTalon", (Talon&) driveTrainFrontLeftTalon);
