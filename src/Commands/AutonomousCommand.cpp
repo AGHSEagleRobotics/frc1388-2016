@@ -29,8 +29,8 @@ AutonomousCommand::AutonomousCommand(): Command() {
 
 // Called just before this Command runs the first time
 void AutonomousCommand::Initialize() {
-	Robot::driveTrain->getGyro()->Reset();
-	float initialAngle = Robot::driveTrain->getGyro()->GetAngle();
+//	Robot::driveTrain->getGyro()->Reset();
+//	float initialAngle = Robot::driveTrain->getGyro()->GetAngle();
 }
 
 // Called repeatedly when this Command is scheduled to run
