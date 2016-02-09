@@ -19,12 +19,10 @@ std::shared_ptr<SpeedController> RobotMap::ballIntakeShootMotor;
 std::shared_ptr<DigitalInput> RobotMap::ballIntakeLowerLimit;
 std::shared_ptr<DigitalInput> RobotMap::ballIntakeUpperLimit;
 std::shared_ptr<SpeedController> RobotMap::ballIntakeTreadMotor;
-std::shared_ptr<AnalogInput> RobotMap::driveTrainPositionSetter;
-std::shared_ptr<AnalogInput> RobotMap::driveTrainAutonDial;
-std::shared_ptr<SpeedController> RobotMap::driveTrainFrontLeftTalon;
-std::shared_ptr<SpeedController> RobotMap::driveTrainFrontRightTalon;
-std::shared_ptr<SpeedController> RobotMap::driveTrainBackLeftTalon;
-std::shared_ptr<SpeedController> RobotMap::driveTrainBackRightTalon;
+std::shared_ptr<SpeedController> RobotMap::driveTrainFrontLeftVictor;
+std::shared_ptr<SpeedController> RobotMap::driveTrainFrontRightVictor;
+std::shared_ptr<SpeedController> RobotMap::driveTrainBackLeftVictor;
+std::shared_ptr<SpeedController> RobotMap::driveTrainBackRightVictor;
 std::shared_ptr<RobotDrive> RobotMap::driveTrainRobotDrive41;
 std::shared_ptr<Encoder> RobotMap::driveTraindriveEncoder;
 std::shared_ptr<AnalogGyro> RobotMap::driveTraindriveGyro;
@@ -54,26 +52,20 @@ void RobotMap::init() {
     ballIntakeTreadMotor.reset(new TalonSRX(5));
     lw->AddActuator("BallIntake", "TreadMotor", (TalonSRX&) ballIntakeTreadMotor);
     
-    driveTrainPositionSetter.reset(new AnalogInput(2));
-    lw->AddSensor("DriveTrain", "PositionSetter", driveTrainPositionSetter);
+    driveTrainFrontLeftVictor.reset(new Victor(3));
+    lw->AddActuator("DriveTrain", "FrontLeftVictor", (Victor&) driveTrainFrontLeftVictor);
     
-    driveTrainAutonDial.reset(new AnalogInput(1));
-    lw->AddSensor("DriveTrain", "AutonDial", driveTrainAutonDial);
+    driveTrainFrontRightVictor.reset(new Victor(1));
+    lw->AddActuator("DriveTrain", "FrontRightVictor", (Victor&) driveTrainFrontRightVictor);
     
-    driveTrainFrontLeftTalon.reset(new Talon(0));
-    lw->AddActuator("DriveTrain", "FrontLeftTalon", (Talon&) driveTrainFrontLeftTalon);
+    driveTrainBackLeftVictor.reset(new Victor(2));
+    lw->AddActuator("DriveTrain", "BackLeftVictor", (Victor&) driveTrainBackLeftVictor);
     
-    driveTrainFrontRightTalon.reset(new Talon(2));
-    lw->AddActuator("DriveTrain", "FrontRightTalon", (Talon&) driveTrainFrontRightTalon);
+    driveTrainBackRightVictor.reset(new Victor(0));
+    lw->AddActuator("DriveTrain", "BackRightVictor", (Victor&) driveTrainBackRightVictor);
     
-    driveTrainBackLeftTalon.reset(new Talon(3));
-    lw->AddActuator("DriveTrain", "BackLeftTalon", (Talon&) driveTrainBackLeftTalon);
-    
-    driveTrainBackRightTalon.reset(new Talon(4));
-    lw->AddActuator("DriveTrain", "BackRightTalon", (Talon&) driveTrainBackRightTalon);
-    
-    driveTrainRobotDrive41.reset(new RobotDrive(driveTrainFrontLeftTalon, driveTrainBackLeftTalon,
-              driveTrainFrontRightTalon, driveTrainBackRightTalon));
+    driveTrainRobotDrive41.reset(new RobotDrive(driveTrainFrontLeftVictor, driveTrainBackLeftVictor,
+              driveTrainFrontRightVictor, driveTrainBackRightVictor));
     
     driveTrainRobotDrive41->SetSafetyEnabled(true);
         driveTrainRobotDrive41->SetExpiration(0.1);

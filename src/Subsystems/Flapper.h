@@ -14,6 +14,7 @@
 
 #include "Commands/PIDSubsystem.h"
 #include "WPILib.h"
+#include "../Commands/MoveFlapper.h"
 
 /**
  *
