@@ -99,8 +99,10 @@ void AutonomousCommand::CorrectError(){
 	if(gyroPos == 0)
 		return;
 
-	if(gyroPos <= 180)
-		AddSequential(new AutonTurn(-1 * gyroPos)); return;
+	if(gyroPos <= 180){
+		AddSequential(new AutonTurn(-1 * gyroPos));
+		return;
+	}
 
 	AddSequential(new AutonTurn(360 - gyroPos));
 
