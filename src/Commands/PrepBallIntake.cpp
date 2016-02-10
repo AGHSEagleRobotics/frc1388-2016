@@ -25,7 +25,7 @@ PrepBallIntake::PrepBallIntake(): Command() {
 
 // Called just before this Command runs the first time
 void PrepBallIntake::Initialize() {
-
+	//todo: delete this command
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -37,7 +37,7 @@ void PrepBallIntake::Execute() {
 		}
 	}
 	if (RobotMap::ballIntakeUpperLimit->Get() == 1){
-		RobotMap::ballIntakePrepMotor->Set(1.0);
+		RobotMap::ballIntakePrepMotor->Set(-1.0);
 		if (RobotMap::ballIntakeLowerLimit->Get() == 1){
 			RobotMap::ballIntakePrepMotor->Set(0);
 		}

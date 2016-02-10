@@ -42,13 +42,13 @@ bool CollectBallIntake::IsFinished() {
 
 // Called once after isFinished returns true
 void CollectBallIntake::End() {
-	RobotMap::ballIntakeShootMotor->Set(0);
-	RobotMap::ballIntakePrepMotor->Set(0);
+
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void CollectBallIntake::Interrupted() {
+	End();
 
 }
