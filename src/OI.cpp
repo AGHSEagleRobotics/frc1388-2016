@@ -21,8 +21,6 @@
 #include "Commands/FlapperHighSetpoint.h"
 #include "Commands/FlapperLowSetpoint.h"
 #include "Commands/MoveFlapper.h"
-#include "Commands/PrepBallIntake.h"
-#include "Commands/RetractBallIntake.h"
 #include "Commands/ShootBallIntake.h"
 #include "Commands/StopBallntake.h"
 
@@ -46,8 +44,6 @@ OI::OI() {
     flapperHighSetpointButton->WhenPressed(new FlapperHighSetpoint(0));
     flapperLowSetpointButton.reset(new JoystickButton(operatorStick.get(), 1));
     flapperLowSetpointButton->WhenPressed(new FlapperLowSetpoint(0));
-    prepIntake.reset(new JoystickButton(operatorStick.get(), 4));
-    prepIntake->WhileHeld(new PrepBallIntake());
     ballOut.reset(new JoystickButton(operatorStick.get(), 3));
     ballOut->WhenPressed(new ShootBallIntake());
     ballIn.reset(new JoystickButton(operatorStick.get(), 2));
