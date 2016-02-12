@@ -24,7 +24,6 @@ private:
 	std::shared_ptr<JoystickButton> stopBallIn;
 	std::shared_ptr<JoystickButton> flapperHighSetpointButton;
 	std::shared_ptr<JoystickButton> flapperLowSetpointButton;
-	std::shared_ptr<JoystickButton> prepIntake;
 	std::shared_ptr<JoystickButton> ballOut;
 	std::shared_ptr<JoystickButton> ballIn;
 

@@ -24,7 +24,7 @@ MoveFlapper::MoveFlapper(): Command() {
 
 // Called just before this Command runs the first time
 void MoveFlapper::Initialize() {
-	if (!RobotMap::flapperFlapperBottomLimit){
+	if (RobotMap::flapperFlapperBottomLimit->Get()){
 		RobotMap::flapperFlapperEncoder->Reset();
 	}
 }
@@ -32,8 +32,12 @@ void MoveFlapper::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void MoveFlapper::Execute() {
 	float FlapperYAxis = Robot::oi->getOperatorStick()->GetY();
-	if(RobotMap::flapperFlapperTopLimit->Get() == 1 && FlapperYAxis > 0){
-		FlapperYAxis = 0;
+	if(RobotMap::flapperFlapperTopLimit->Get() == 1){
+		RobotMap::flapperFlapperEncoder->Reset();
+
+		if(FlapperYAxis > 0){
+			FlapperYAxis = 0;
+		}
 	}
 	if(RobotMap::flapperFlapperBottomLimit->Get() == 1 && FlapperYAxis < 0 ){
 		FlapperYAxis = 0;
@@ -44,9 +48,7 @@ void MoveFlapper::Execute() {
 	if (RobotMap::flapperFlapperEncoder->Get() <= 0 && FlapperYAxis < 0){
 		FlapperYAxis = 0;
 	}
-	if (RobotMap::flapperFlapperBottomLimit->Get() == 1){
-		RobotMap::flapperFlapperEncoder->Reset();
-	}
+
 RobotMap::flapperFlapperMotor->Set(FlapperYAxis);
 double flapperMotorEncoder = RobotMap::flapperFlapperEncoder->Get();
 SmartDashboard::PutNumber("FlapperAngle",flapperMotorEncoder);
