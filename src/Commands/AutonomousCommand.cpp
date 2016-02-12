@@ -116,7 +116,7 @@ void AutonomousCommand::DriveNoFlapper(){
 
 	CorrectError(positionDial);
 
-	AlignToGoal(true /*TODO GET FROM SMART DASHBOARD*/);
+	AlignToGoal(SmartDashboard::GetBoolean("Target Right Goal", true));
 }
 
 void AutonomousCommand::AlignToGoal(bool goForLeft){
