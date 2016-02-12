@@ -25,13 +25,18 @@ CollectBallIntake::CollectBallIntake(): Command() {
 
 // Called just before this Command runs the first time
 void CollectBallIntake::Initialize() {
+	RobotMap::ballIntakePrepMotor->Set(1.0);
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void CollectBallIntake::Execute() {
-	RobotMap::ballIntakeShootMotor->Set(-1.0);
-	RobotMap::ballIntakePrepMotor->Set(-1.0);
+	if (RobotMap::ballIntakeLowerLimit->Get() == true){
+		RobotMap::ballIntakePrepMotor->Set(0);
+		RobotMap::ballIntakeShootMotor->Set(-1.0);
+		RobotMap::ballIntakeTreadMotor->Set(-1.0);
+	}
+
 
 }
 
@@ -42,13 +47,13 @@ bool CollectBallIntake::IsFinished() {
 
 // Called once after isFinished returns true
 void CollectBallIntake::End() {
-	RobotMap::ballIntakeShootMotor->Set(0);
-	RobotMap::ballIntakePrepMotor->Set(0);
+
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void CollectBallIntake::Interrupted() {
+	End();
 
 }
