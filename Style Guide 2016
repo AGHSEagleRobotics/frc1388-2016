@@ -1,0 +1,20 @@
+FRC Style Guide Take 2
+
+Indent: Every time you go into a level you indent an additional time
+{lorem ipsum
+1	dolor sit
+1	2	amet}
+
+Camelcase -- Classes Start With Upper, objects lower
+
+Constants -- All Uppercase and use underscores
+
+Do NOT allow unbracketed "if" statements
+
+No code following an open bracket 
+ NO: { sample text}
+YES: {
+	sample text}
+	
+	
+The word "Cool" is henceforth banned forever 
