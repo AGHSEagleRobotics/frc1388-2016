@@ -25,16 +25,16 @@ CollectBallIntake::CollectBallIntake(): Command() {
 
 // Called just before this Command runs the first time
 void CollectBallIntake::Initialize() {
-	RobotMap::ballIntakePrepMotor->Set(1.0);
+	RobotMap::ballIntakePrepMotor->Set(1.0);// starts lowering intake
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void CollectBallIntake::Execute() {
-	if (RobotMap::ballIntakeLowerLimit->Get() == true){
-		RobotMap::ballIntakePrepMotor->Set(0);
-		RobotMap::ballIntakeShootMotor->Set(-1.0);
-		RobotMap::ballIntakeTreadMotor->Set(-1.0);
+	if (RobotMap::ballIntakeLowerLimit->Get() == true){// checks to see if intake is lowered
+		RobotMap::ballIntakePrepMotor->Set(0);// stops lowering intake
+		RobotMap::ballIntakeShootMotor->Set(-1.0);// turns on shoot motor to pull in ball
+		RobotMap::ballIntakeTreadMotor->Set(-1.0);// turns on tread motor on flapper pull in ball
 	}
 
 
