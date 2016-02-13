@@ -35,7 +35,7 @@ void ShootBallIntake::Execute() {
 			RobotMap::ballIntakePrepMotor->Set(0);// turns off intake is it is lowered
 			RobotMap::ballIntakeShootMotor->Set(1.0);// turns on shoot motor to shoot ball
 			RobotMap::ballIntakeTreadMotor->Set(1.0);// turns on flapper tread motor to shoot ball
-		}
+	}
 
 }
 
