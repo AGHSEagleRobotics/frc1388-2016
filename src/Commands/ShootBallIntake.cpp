@@ -25,23 +25,18 @@ ShootBallIntake::ShootBallIntake(): Command() {
 
 // Called just before this Command runs the first time
 void ShootBallIntake::Initialize() {
-	RobotMap::ballIntakePrepMotor->Set(1.0);//begins to lower intake
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ShootBallIntake::Execute() {
-	if(RobotMap::ballIntakeLowerLimit->Get() == true){// checks to see if intake is lowered
-			RobotMap::ballIntakePrepMotor->Set(0);// turns off intake is it is lowered
 			RobotMap::ballIntakeShootMotor->Set(1.0);// turns on shoot motor to shoot ball
 			RobotMap::ballIntakeTreadMotor->Set(1.0);// turns on flapper tread motor to shoot ball
-		}
-
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShootBallIntake::IsFinished() {
-    return false;
+	return false;
 }
 
 // Called once after isFinished returns true
