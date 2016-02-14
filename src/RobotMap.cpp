@@ -48,16 +48,16 @@ void RobotMap::init() {
     driveTrainAutonDial.reset(new AnalogInput(1));
     lw->AddSensor("DriveTrain", "AutonDial", driveTrainAutonDial);
     
-    driveTrainFrontLeftTalon.reset(new Talon(0));
+    driveTrainFrontLeftTalon.reset(new Talon(3));
     lw->AddActuator("DriveTrain", "FrontLeftTalon", std::static_pointer_cast<Talon>(driveTrainFrontLeftTalon));
     
-    driveTrainFrontRightTalon.reset(new Talon(1));
+    driveTrainFrontRightTalon.reset(new Talon(0));
     lw->AddActuator("DriveTrain", "FrontRightTalon", std::static_pointer_cast<Talon>(driveTrainFrontRightTalon));
     
     driveTrainBackLeftTalon.reset(new Talon(2));
     lw->AddActuator("DriveTrain", "BackLeftTalon", std::static_pointer_cast<Talon>(driveTrainBackLeftTalon));
     
-    driveTrainBackRightTalon.reset(new Talon(3));
+    driveTrainBackRightTalon.reset(new Talon(1));
     lw->AddActuator("DriveTrain", "BackRightTalon", std::static_pointer_cast<Talon>(driveTrainBackRightTalon));
     
     driveTrainRobotDrive41.reset(new RobotDrive(driveTrainFrontLeftTalon, driveTrainBackLeftTalon,
@@ -68,6 +68,7 @@ void RobotMap::init() {
         driveTrainRobotDrive41->SetSensitivity(0.5);
         driveTrainRobotDrive41->SetMaxOutput(1.0);
 
+        driveTrainRobotDrive41->SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
         driveTrainRobotDrive41->SetInvertedMotor(RobotDrive::kRearRightMotor, true);
     driveTraindriveEncoder.reset(new Encoder(8, 9, false, Encoder::k4X));
     lw->AddSensor("DriveTrain", "driveEncoder", driveTraindriveEncoder);

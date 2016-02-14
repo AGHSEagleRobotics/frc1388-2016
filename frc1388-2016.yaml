@@ -87,7 +87,7 @@ Children:
             default: '0'
             name: Output Channel (PWM)
             validators: *id003
-            value: '0'
+            value: '3'
         Base: Speed Controller
         Name: FrontLeftTalon
       - Children: []
@@ -103,7 +103,7 @@ Children:
             default: '0'
             name: Output Channel (PWM)
             validators: *id003
-            value: '1'
+            value: '0'
         Base: Speed Controller
         Name: FrontRightTalon
       - Children: []
@@ -135,7 +135,7 @@ Children:
             default: '0'
             name: Output Channel (PWM)
             validators: *id003
-            value: '3'
+            value: '1'
         Base: Speed Controller
         Name: BackRightTalon
       Properties:
@@ -158,7 +158,7 @@ Children:
         Left Front Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {
           default: false, name: Left Front Motor Inverted, validators: null, value: false}
         Right Front Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {
-          default: false, name: Right Front Motor Inverted, validators: null, value: false}
+          default: false, name: Right Front Motor Inverted, validators: null, value: true}
         Left Rear Motor: !!robotbuilder.data.properties.ChildSelectionProperty
           default: 1
           name: Left Rear Motor
@@ -796,9 +796,8 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Ciloz\workspace',
-    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\Ciloz\Desktop\FRC
-      Eagle Robotics\Programming'}
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Jeff\workspace',
+    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\workspace'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: false}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -816,7 +815,7 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Ciloz\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Jeff\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Eagle
       Robotics'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
