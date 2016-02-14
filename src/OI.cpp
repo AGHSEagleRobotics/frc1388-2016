@@ -34,7 +34,7 @@ OI::OI() {
     
     leftDriveStick.reset(new Joystick(0));
     
-    operatorStick.reset(new Joystick(3));
+    operatorStick.reset(new Joystick(2));
     
     stopBallOut.reset(new JoystickButton(operatorStick.get(), 4));
     stopBallOut->WhenReleased(new StopBallntake());
