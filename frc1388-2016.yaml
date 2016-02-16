@@ -792,6 +792,25 @@ Children:
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: AutonTurn
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: degrees, type: double}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Flapper}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id022 []
+        name: Parameter presets
+        validators: null
+        value: *id022
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+    Base: Command
+    Name: AutonMoveFlapper
   Properties: {}
   Base: Commands
   Name: Commands
@@ -800,7 +819,7 @@ Properties:
       Robotics\workspace', extension: null, folder: true, name: Eclipse Workspace,
     validators: null, value: 'C:\Users\Eagle Robotics\workspace'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
-    name: Export Commands, validators: null, value: false}
+    name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
     default: []
     name: Autonomous command parameters
