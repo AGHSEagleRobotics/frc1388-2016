@@ -51,6 +51,8 @@ void Robot::DisabledInit(){
 
 void Robot::DisabledPeriodic() {
 	Scheduler::GetInstance()->Run();
+	float encoder = RobotMap::driveTraindriveEncoder->Get();
+	printf("encoder % f \n" , encoder);
 }
 
 void Robot::AutonomousInit() {
