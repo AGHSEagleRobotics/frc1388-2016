@@ -37,10 +37,10 @@ void RobotMap::init() {
     LiveWindow *lw = LiveWindow::GetInstance();
 
     ballIntakeShootMotor.reset(new TalonSRX(8));
-    lw->AddActuator("BallIntake", "ShootMotor", std::static_pointer_cast<TalonSRX>(ballIntakeShootMotor));
+    lw->AddActuator("BallIntake", "ShootMotor", (TalonSRX&) ballIntakeShootMotor);
     
     ballIntakeTreadMotor.reset(new TalonSRX(5));
-    lw->AddActuator("BallIntake", "TreadMotor", std::static_pointer_cast<TalonSRX>(ballIntakeTreadMotor));
+    lw->AddActuator("BallIntake", "TreadMotor", (TalonSRX&) ballIntakeTreadMotor);
     
     driveTrainPositionSetter.reset(new AnalogInput(2));
     lw->AddSensor("DriveTrain", "PositionSetter", driveTrainPositionSetter);
@@ -49,16 +49,16 @@ void RobotMap::init() {
     lw->AddSensor("DriveTrain", "AutonDial", driveTrainAutonDial);
     
     driveTrainFrontLeftTalon.reset(new Talon(3));
-    lw->AddActuator("DriveTrain", "FrontLeftTalon", std::static_pointer_cast<Talon>(driveTrainFrontLeftTalon));
+    lw->AddActuator("DriveTrain", "FrontLeftTalon", (Talon&) driveTrainFrontLeftTalon);
     
     driveTrainFrontRightTalon.reset(new Talon(0));
-    lw->AddActuator("DriveTrain", "FrontRightTalon", std::static_pointer_cast<Talon>(driveTrainFrontRightTalon));
+    lw->AddActuator("DriveTrain", "FrontRightTalon", (Talon&) driveTrainFrontRightTalon);
     
     driveTrainBackLeftTalon.reset(new Talon(2));
-    lw->AddActuator("DriveTrain", "BackLeftTalon", std::static_pointer_cast<Talon>(driveTrainBackLeftTalon));
+    lw->AddActuator("DriveTrain", "BackLeftTalon", (Talon&) driveTrainBackLeftTalon);
     
     driveTrainBackRightTalon.reset(new Talon(1));
-    lw->AddActuator("DriveTrain", "BackRightTalon", std::static_pointer_cast<Talon>(driveTrainBackRightTalon));
+    lw->AddActuator("DriveTrain", "BackRightTalon", (Talon&) driveTrainBackRightTalon);
     
     driveTrainRobotDrive41.reset(new RobotDrive(driveTrainFrontLeftTalon, driveTrainBackLeftTalon,
               driveTrainFrontRightTalon, driveTrainBackRightTalon));
@@ -70,23 +70,23 @@ void RobotMap::init() {
 
         driveTrainRobotDrive41->SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
         driveTrainRobotDrive41->SetInvertedMotor(RobotDrive::kRearRightMotor, true);
-    driveTraindriveEncoder.reset(new Encoder(8, 9, false, Encoder::k4X));
+    driveTraindriveEncoder.reset(new Encoder(2, 3, false, Encoder::k4X));
     lw->AddSensor("DriveTrain", "driveEncoder", driveTraindriveEncoder);
-    driveTraindriveEncoder->SetDistancePerPulse(0.05234);
+    driveTraindriveEncoder->SetDistancePerPulse(0.005);
     driveTraindriveEncoder->SetPIDSourceType(PIDSourceType::kRate);
     driveTraindriveGyro.reset(new AnalogGyro(0));
     lw->AddSensor("DriveTrain", "driveGyro", driveTraindriveGyro);
     driveTraindriveGyro->SetSensitivity(0.007);
     flapperFlapperMotor.reset(new TalonSRX(6));
-    lw->AddActuator("Flapper", "FlapperMotor", std::static_pointer_cast<TalonSRX>(flapperFlapperMotor));
+    lw->AddActuator("Flapper", "FlapperMotor", (TalonSRX&) flapperFlapperMotor);
     
-    flapperFlapperTopLimit.reset(new DigitalInput(0));
+    flapperFlapperTopLimit.reset(new DigitalInput(17));
     lw->AddSensor("Flapper", "FlapperTopLimit", flapperFlapperTopLimit);
     
-    flapperFlapperBottomLimit.reset(new DigitalInput(1));
+    flapperFlapperBottomLimit.reset(new DigitalInput(18));
     lw->AddSensor("Flapper", "FlapperBottomLimit", flapperFlapperBottomLimit);
     
-    flapperFlapperEncoder.reset(new Encoder(2, 3, false, Encoder::k4X));
+    flapperFlapperEncoder.reset(new Encoder(5, 4, false, Encoder::k4X));
     lw->AddSensor("Flapper", "FlapperEncoder", flapperFlapperEncoder);
     flapperFlapperEncoder->SetDistancePerPulse(1.0);
     flapperFlapperEncoder->SetPIDSourceType(PIDSourceType::kRate);

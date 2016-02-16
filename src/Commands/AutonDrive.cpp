@@ -27,16 +27,18 @@ AutonDrive::AutonDrive(double goalDistance): Command() {
 // Called just before this Command runs the first time
 void AutonDrive::Initialize() {
 	RobotMap::driveTraindriveEncoder->Reset();
+	printf(" autondrive init \n\n\n\n\n\n\n\n\n\\n\n\n\n\n\n\n\n");
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AutonDrive::Execute() {
 	m_currentDistance = RobotMap::driveTraindriveEncoder->GetDistance();
-	float power = -1 / m_goalDistance * m_currentDistance + 1;
+	float power =  (-1 / m_goalDistance) * m_currentDistance + 1;
+	printf("power = %f" , power);
 	//Phillip, we changed this because it was creating an error: goalDistance --> m_goalDistance
 	//Tell us if this is incorrect - Tommy & Elliott
-	RobotMap::driveTrainRobotDrive41->TankDrive(power,power);
+	RobotMap::driveTrainRobotDrive41->TankDrive(-power/4,-power/4);
 }
 
 // Make this return true when this Command no longer needs to run execute()

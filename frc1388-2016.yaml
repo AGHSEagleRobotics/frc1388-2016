@@ -190,9 +190,9 @@ Children:
           default: '0'
           name: Channel A Channel (Digital)
           validators: &id009 [DigitalChannel]
-          value: '8'
+          value: '2'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
-          name: Distance Per Pulse, validators: null, value: 0.05234}
+          name: Distance Per Pulse, validators: null, value: 0.005}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
           choices: &id010 [kDisplacement, kRate]
           default: kRate
@@ -214,7 +214,7 @@ Children:
           default: '0'
           name: Channel B Channel (Digital)
           validators: &id013 [DigitalChannel]
-          value: '9'
+          value: '3'
       Base: Quadrature Encoder
       Name: driveEncoder
     - Children: []
@@ -270,7 +270,7 @@ Children:
           default: '0'
           name: Input Channel (Digital)
           validators: &id007 [DigitalChannel]
-          value: '0'
+          value: '17'
       Base: Limit Switch
       Name: FlapperTopLimit
     - Children: []
@@ -280,7 +280,7 @@ Children:
           default: '0'
           name: Input Channel (Digital)
           validators: *id007
-          value: '1'
+          value: '18'
       Base: Limit Switch
       Name: FlapperBottomLimit
     - Children: []
@@ -290,7 +290,7 @@ Children:
           default: '0'
           name: Channel A Channel (Digital)
           validators: *id009
-          value: '2'
+          value: '5'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Distance Per Pulse, validators: null, value: 1.0}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
@@ -312,7 +312,7 @@ Children:
           default: '0'
           name: Channel B Channel (Digital)
           validators: *id013
-          value: '3'
+          value: '4'
       Base: Quadrature Encoder
       Name: FlapperEncoder
     Properties:
@@ -659,26 +659,6 @@ Children:
   - Children: []
     Properties:
       Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default: []
-        name: Parameters
-        validators: null
-        value:
-        - !!robotbuilder.data.properties.ParameterDescriptor {name: goalDistance,
-          type: double}
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
-      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: []
-        name: Parameter presets
-        validators: null
-        value: []
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-    Base: Command
-    Name: AutonDrive
-  - Children: []
-    Properties:
-      Parameters: !!robotbuilder.data.properties.ParametersProperty
         default:
         - &id019 !!robotbuilder.data.properties.ParameterDescriptor {name: setpoint,
           type: double}
@@ -709,6 +689,26 @@ Children:
   - Children: []
     Properties:
       Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: goalDistance,
+          type: double}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: []
+        name: Parameter presets
+        validators: null
+        value: []
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+    Base: Command
+    Name: AutonDrive
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
         default:
         - *id019
         name: Parameters
@@ -734,25 +734,6 @@ Children:
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Setpoint Command
     Name: FlapperLowSetpoint
-  - Children: []
-    Properties:
-      Parameters: !!robotbuilder.data.properties.ParametersProperty
-        default: []
-        name: Parameters
-        validators: null
-        value:
-        - !!robotbuilder.data.properties.ParameterDescriptor {name: degrees, type: int}
-      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
-      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: []
-        name: Parameter presets
-        validators: null
-        value: []
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-    Base: Command
-    Name: AutonTurn
   - Children: []
     Properties:
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -792,11 +773,30 @@ Children:
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: StopBallntake
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: degrees, type: int}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: DriveTrain}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: []
+        name: Parameter presets
+        validators: null
+        value: []
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+    Base: Command
+    Name: AutonTurn
   Properties: {}
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Jeff\workspace',
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Joey\workspace',
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\workspace'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: false}
@@ -815,10 +815,10 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Jeff\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Joey\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Eagle
       Robotics'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-    name: Autonomous Command, type: Command, validators: null, value: None}
+    name: Autonomous Command, type: Command, validators: null, value: AutonomousCommand}
 Base: Robot
 Name: frc1388-2016
