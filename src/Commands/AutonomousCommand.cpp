@@ -132,22 +132,22 @@ void AutonomousCommand::CrossWithFlapper(){
 
 	case 0 /*Portcullis*/:
 		AddSequential(new AutonDrive(DISTANCE_TO_MANIPULATE_OBSTACLE));
-//		AddSequential(new MoveFlapper(-70)); NEEDS TO BE REPLACED BY AUTON MOVEFLAPPER
+		AddSequential(new AutonMoveFlapper(-70));
 		AddSequential(new AutonDrive(DISTANCE_CROSS_TO_ALIGNMENT - DISTANCE_TO_MANIPULATE_OBSTACLE));
 
 		break;
 	case 1 /*Drawbridge*/:
-//		AddSequential(new FlapperHighSetpoint()); NEEDS TO BE FIXED
+		//set flapper to top
 		AddSequential(new AutonDrive(DISTANCE_TO_MANIPULATE_OBSTACLE));
-//		AddSequential(new MoveFlapper(50));
+		AddSequential(new AutonMoveFlapper(50));
 		AddSequential(new AutonDrive(-10)); //To pull back Drawbridge
 		AddSequential(new AutonDrive(DISTANCE_CROSS_TO_ALIGNMENT - DISTANCE_TO_MANIPULATE_OBSTACLE + 10));
 
 		break;
 	case 2 /*Sally Port*/:
-//		AddSequential(new FlapperHighSetpoint());
+		//set flapper to top
 		AddSequential(new AutonDrive(DISTANCE_TO_MANIPULATE_OBSTACLE));
-//		AddSequential(new MoveFlapper(80));
+		AddSequential(new AutonMoveFlapper(80));
 		AddSequential(new AutonDrive(-10)); //To pull back Sally Port
 		AddSequential(new AutonDrive(DISTANCE_CROSS_TO_ALIGNMENT - DISTANCE_TO_MANIPULATE_OBSTACLE + 10));
 
