@@ -31,21 +31,12 @@ void StopBallntake::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void StopBallntake::Execute() {
-	if(RobotMap::ballIntakeLowerLimit->Get() == true){//checks to see if intake is lowered
-			RobotMap::ballIntakePrepMotor->Set(-1.0);// raises intake
-		}
-		if (RobotMap::ballIntakeUpperLimit->Get() == true){//checks to see if intake is at top
-			RobotMap::ballIntakePrepMotor->Set(0);// stops raising intake
-		}
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool StopBallntake::IsFinished() {
-    if(RobotMap::ballIntakeUpperLimit->Get() == true){// ensures that intake has been raised
-    	return true;// stops command only if intake has been raised
-    }
-    else return false;
+   return true;
 }
 
 // Called once after isFinished returns true

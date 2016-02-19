@@ -45,8 +45,14 @@ void Drive::Execute() {
 	printf("Exec\n");
 	float leftStickY = Deadband(Robot::oi->getLeftDriveStick()->GetY());
 	float rightStickY = Deadband(Robot::oi->getRightDriveStick()->GetY());
-	printf("Right stick: %f\n", rightStickY);
 	RobotMap::driveTrainRobotDrive41->TankDrive(leftStickY,rightStickY);
+
+	//the following code is test code for Andrew G.
+//	float leftgameStickY = Deadband(Robot::oi->getLeftDriveStick()->GetY());
+//	float rightgameStickThrottle = Deadband(Robot::oi->getLeftDriveStick()->GetThrottle());
+//	 RobotMap::driveTrainRobotDrive41->TankDrive(leftgameStickY, rightgameStickThrottle);
+
+
 
 }
 
