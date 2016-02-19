@@ -22,8 +22,13 @@ int Vision::AnalyzeParticle(){
 	//binImg->Write("binImg.mjpeg");
 	//getting the particle report
 	particleReport = binImg->GetOrderedParticleAnalysisReports();
+
+	for(int i = 0; i < particleReport->size(); i++){
+		particleReport->erase(particleReport->begin() + i);
+		i--;
+	}
 	//printfs for testing purposes, determining if the particlereport does what I think.
-	printf("Height: %d", particleReport->at(0));
-	printf("Width: %d", particleReport->at(1));
-	printf("Area: %d", particleReport->at(8));
+	printf("Height: %d", particleReport->at(0).boundingRect.height);
+	printf("Width: %d", particleReport->at(0).boundingRect.width);
+	printf("Area: %d", particleReport->at(0).particleArea);
 }
