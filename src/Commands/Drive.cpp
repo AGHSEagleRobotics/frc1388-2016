@@ -43,13 +43,26 @@ void Drive::Execute() {
 
 	float leftStickY = Deadband(Robot::oi->getLeftDriveStick()->GetY());
 	float rightStickY = Deadband(Robot::oi->getRightDriveStick()->GetY());
-	RobotMap::driveTrainRobotDrive41->TankDrive(leftStickY,rightStickY);
+
+	if((leftStickY < 0 && rightStickY > 0)
+			|| (leftStickY > 0 && rightStickY < 0)){
+		RobotMap::driveTrainRobotDrive41->TankDrive(leftStickY, rightStickY);
+	}else {
+		RobotMap::driveTrainRobotDrive41->TankDrive(leftStickY, rightStickY);
+	};
+
 	printf("Right stick Y input: %f Deadband: %f  \n", Robot::oi->getRightDriveStick()->GetY(), rightStickY);
 
 	//the following code is test code for Andrew G.
 //	float leftgameStickY = Deadband(Robot::oi->getLeftDriveStick()->GetY());
-//	float rightgameStickThrottle = Deadband(Robot::oi->getLeftDriveStick()->GetThrottle());
-//	 RobotMap::driveTrainRobotDrive41->TankDrive(leftgameStickY, rightgameStickThrottle);
+//	float rightGameStickThrottle = Deadband(Robot::oi->getLeftDriveStick()->GetThrottle());
+//
+//	if((leftgameStickY < 0 && rightGameStickThrottle > 0)
+//			|| (leftgameStickY > 0 && rightGameStickThrottle < 0)){
+//		RobotMap::driveTrainRobotDrive41->TankDrive(leftgameStickY, rightGameStickThrottle);
+//	}else {
+//		RobotMap::driveTrainRobotDrive41->TankDrive(leftgameStickY * 0.75, rightGameStickThrottle * 0.75);
+//	};
 
 
 
