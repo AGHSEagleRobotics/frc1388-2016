@@ -34,15 +34,13 @@ float Drive::Deadband(float input){
 }
 // Called just before this Command runs the first time
 void Drive::Initialize() {
-	printf("\n\n\n\n\n\n\n\n\n\n---------------------------------Init--------------------------------\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	visi.cameraSetup();
 	RobotMap::driveTraindriveEncoder->Reset();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute() {
-	Vision visi;
 	visi.AnalyzeParticle();
-	printf("Exec\n");
 	float leftStickY = Deadband(Robot::oi->getLeftDriveStick()->GetY());
 	float rightStickY = Deadband(Robot::oi->getRightDriveStick()->GetY());
 	RobotMap::driveTrainRobotDrive41->TankDrive(leftStickY,rightStickY);

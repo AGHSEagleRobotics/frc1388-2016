@@ -9,6 +9,7 @@ class Vision{
 	AxisCamera * camera;
 	vector<ParticleAnalysisReport> * particleReport;
 	public:
-	int AnalyzeParticle();
+	void setupCamera();
+	void AnalyzeParticle();
 	Vision();
 };
