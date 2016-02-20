@@ -18,6 +18,7 @@
 #include "Commands/AutonTurn.h"
 #include "Commands/AutonomousCommand.h"
 #include "Commands/CollectBallIntake.h"
+#include "Commands/DefaultIntake.h"
 #include "Commands/Drive.h"
 #include "Commands/FlapperHighSetpoint.h"
 #include "Commands/FlapperLowSetpoint.h"
@@ -41,10 +42,10 @@ OI::OI() {
     stopBallOut->WhenReleased(new StopBallntake());
     stopBallIn.reset(new JoystickButton(operatorStick.get(), 2));
     stopBallIn->WhenReleased(new StopBallntake());
-    flapperLowSetpointButton.reset(new JoystickButton(operatorStick.get(), 3));
-    flapperLowSetpointButton->WhenPressed(new FlapperLowSetpoint(0));
     flapperHighSetpointButton.reset(new JoystickButton(operatorStick.get(), 5));
     flapperHighSetpointButton->WhenPressed(new FlapperHighSetpoint(0));
+    flapperLowSetpointButton.reset(new JoystickButton(operatorStick.get(), 3));
+    flapperLowSetpointButton->WhenPressed(new FlapperLowSetpoint(0));
     ballOut.reset(new JoystickButton(operatorStick.get(), 1));
     ballOut->WhenPressed(new ShootBallIntake());
     ballIn.reset(new JoystickButton(operatorStick.get(), 2));
