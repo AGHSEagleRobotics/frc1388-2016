@@ -192,6 +192,7 @@ void AutonomousCommand::AlignToGoal(bool goForLeft){
 		}
 
 		AddSequential(new AutonDrive(DISTANCE_GOAL_ALIGNMENT_LEFT));
+		AddSequential(new AutonTurn(-60));
 
 	}else{
 
@@ -222,5 +223,6 @@ void AutonomousCommand::AlignToGoal(bool goForLeft){
 		}
 
 		AddSequential(new AutonDrive(DISTANCE_GOAL_ALIGNMENT_RIGHT));
+		AddSequential(new AutonTurn(-60));
 	}
 }
