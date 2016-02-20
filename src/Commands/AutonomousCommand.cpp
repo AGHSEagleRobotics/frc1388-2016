@@ -15,6 +15,7 @@
 #include "../Commands/MoveFlapper.h"
 #include "../Commands/AutonTurn.h"
 #include "../Commands/AutonDrive.h"
+#include "../Commands/AutonMoveFlapper.h"
 
 #define DISTANCE_TO_OBSTACLE 81.0
 #define DISTANCE_TO_MANIPULATE_OBSTACLE 84.0
