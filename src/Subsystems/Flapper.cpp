@@ -9,7 +9,7 @@
 // it from being updated in the future.
 
 
-
+#include "Robot.h"
 #include "Flapper.h"
 #include "../RobotMap.h"
 #include "SmartDashboard/SmartDashboard.h"
