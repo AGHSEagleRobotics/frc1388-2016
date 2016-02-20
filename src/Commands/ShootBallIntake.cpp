@@ -33,6 +33,11 @@ void ShootBallIntake::Initialize() {
 void ShootBallIntake::Execute() {
 			RobotMap::ballIntakeShootMotor->Set(1.0);// turns on shoot motor to shoot ball
 			RobotMap::ballIntakeTreadMotor->Set(1.0);// turns on flapper tread motor to shoot ball
+			if (RobotMap::ballIntakeBallDetector->GetRangeInches() < 7.0)// turns off motors when ball is in
+			{
+				RobotMap::ballIntakeShootMotor->Set(0);
+				RobotMap::ballIntakeTreadMotor->Set(0);
+			}
 }
 
 // Make this return true when this Command no longer needs to run execute()
