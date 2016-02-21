@@ -7,33 +7,17 @@ Children:
     - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id001 [Victor, Jaguar, Talon, VictorSP, TalonSRX, Spark, SD540]
+          choices: &id003 [Victor, Jaguar, Talon, VictorSP, TalonSRX, Spark, SD540]
           default: Talon
           name: Type
           validators: null
           value: TalonSRX
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id002 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+          choices: &id004 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
             '11', '12', '13', '14', '15', '16', '17', '18', '19']
           default: '0'
           name: Output Channel (PWM)
-          validators: &id003 [PWMOutput]
-          value: '8'
-      Base: Speed Controller
-      Name: ShootMotor
-    - Children: []
-      Properties:
-        Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id001
-          default: Talon
-          name: Type
-          validators: null
-          value: TalonSRX
-        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id002
-          default: '0'
-          name: Output Channel (PWM)
-          validators: *id003
+          validators: &id005 [PWMOutput]
           value: '5'
       Base: Speed Controller
       Name: TreadMotor
@@ -57,6 +41,17 @@ Children:
           value: '1'
       Base: Ultrasonic
       Name: BallDetector
+    - Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+            '12', '13', '14', '15', '16', '17', '18', '19', '20']
+          default: '2'
+          name: CAN ID
+          validators: [CANID]
+          value: '13'
+      Base: CAN Talon
+      Name: ShootMotor
     Properties:
       Default command parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
@@ -64,7 +59,7 @@ Children:
         validators: null
         value: []
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Default Command, type: Command, validators: null, value: None}
+        name: Default Command, type: Command, validators: null, value: DefaultIntake}
       Constants: !!robotbuilder.data.properties.ConstantsProperty
         default: []
         name: Constants
@@ -76,20 +71,20 @@ Children:
     - Children: []
       Properties:
         Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id004 ['0', '1', '2', '3', '4', '5', '6', '7']
+          choices: &id001 ['0', '1', '2', '3', '4', '5', '6', '7']
           default: '0'
           name: Input Channel (Analog)
-          validators: &id005 [AnalogInput]
+          validators: &id002 [AnalogInput]
           value: '2'
       Base: Analog Input
       Name: PositionSetter
     - Children: []
       Properties:
         Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id004
+          choices: *id001
           default: '0'
           name: Input Channel (Analog)
-          validators: *id005
+          validators: *id002
           value: '1'
       Base: Analog Input
       Name: AutonDial
@@ -97,64 +92,64 @@ Children:
       - Children: []
         Properties:
           Type: !!robotbuilder.data.properties.ChoicesProperty
-            choices: *id001
+            choices: *id003
             default: Talon
             name: Type
             validators: null
             value: Talon
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-            choices: *id002
+            choices: *id004
             default: '0'
             name: Output Channel (PWM)
-            validators: *id003
+            validators: *id005
             value: '3'
         Base: Speed Controller
         Name: FrontLeftTalon
       - Children: []
         Properties:
           Type: !!robotbuilder.data.properties.ChoicesProperty
-            choices: *id001
+            choices: *id003
             default: Talon
             name: Type
             validators: null
             value: Talon
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-            choices: *id002
+            choices: *id004
             default: '0'
             name: Output Channel (PWM)
-            validators: *id003
+            validators: *id005
             value: '0'
         Base: Speed Controller
         Name: FrontRightTalon
       - Children: []
         Properties:
           Type: !!robotbuilder.data.properties.ChoicesProperty
-            choices: *id001
+            choices: *id003
             default: Talon
             name: Type
             validators: null
             value: Talon
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-            choices: *id002
+            choices: *id004
             default: '0'
             name: Output Channel (PWM)
-            validators: *id003
+            validators: *id005
             value: '2'
         Base: Speed Controller
         Name: BackLeftTalon
       - Children: []
         Properties:
           Type: !!robotbuilder.data.properties.ChoicesProperty
-            choices: *id001
+            choices: *id003
             default: Talon
             name: Type
             validators: null
             value: Talon
           Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-            choices: *id002
+            choices: *id004
             default: '0'
             name: Output Channel (PWM)
-            validators: *id003
+            validators: *id005
             value: '1'
         Base: Speed Controller
         Name: BackRightTalon
@@ -268,16 +263,16 @@ Children:
     - Children: []
       Properties:
         Type: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id001
+          choices: *id003
           default: Talon
           name: Type
           validators: null
           value: TalonSRX
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id002
+          choices: *id004
           default: '0'
           name: Output Channel (PWM)
-          validators: *id003
+          validators: *id005
           value: '6'
       Base: Speed Controller
       Name: FlapperMotor
@@ -407,7 +402,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '2'
+          value: '1'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -436,7 +431,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '2'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -527,7 +522,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '2'
+          value: '1'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -556,7 +551,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '2'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -831,13 +826,30 @@ Children:
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: AutonMoveFlapper
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: BallIntake}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: []
+        name: Parameter presets
+        validators: null
+        value: []
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+    Base: Command
+    Name: DefaultIntake
   Properties: {}
   Base: Commands
   Name: Commands
 Properties:
   Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\dphey\workspace',
-    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\Eagle
-      Robotics\workspace'}
+    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\workspace'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
