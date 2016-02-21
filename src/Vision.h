@@ -12,12 +12,14 @@ class Vision{
 	BinaryImage * binImg;
 	AxisCamera * camera;
 	vector<ParticleAnalysisReport> * particleReport;
+	ParticleAnalysisReport biggestParticle;
 	public:
 	void setupCamera();
 	void AnalyzeParticle();
 	double getArea();
 	double boundingRectArea();
-	bool getParticleSide();
+	float getDistance();
+	float getNormalized();
 	Vision();
 };
 

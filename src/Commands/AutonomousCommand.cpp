@@ -16,6 +16,9 @@
 #include "../Commands/AutonTurn.h"
 #include "../Commands/AutonDrive.h"
 #include "../Commands/AutonMoveFlapper.h"
+#include "../Commands/VisionDrive.h"
+#include "../Commands/AlignRobot.h"
+#include "../Commands/ShootBallIntake.h"
 
 #define DISTANCE_TO_OBSTACLE 81.0
 #define DISTANCE_TO_MANIPULATE_OBSTACLE 84.0
@@ -83,6 +86,9 @@ AutonomousCommand::AutonomousCommand() {
 		break;
 	}
 
+	AddSequential(new AlignRobot()); //align the robot with the target
+	AddSequential(new VisionDrive()); //drive to the target
+	AddSequential(new ShootBallIntake()); //shoot the ball
  }
 
 void AutonomousCommand::CorrectError(int fieldPos){

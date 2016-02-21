@@ -2,7 +2,7 @@
 #include "WPILib.h"
 #define MINIMUM_AREA < 100
 #define CAMERA_VIEW_ANGLE 46.857 //this is the measurement of the angle the camera can see in degrees
-
+#define CONSTANT 1.00
 Vision::Vision(){
 
 }
@@ -46,15 +46,25 @@ void Vision::AnalyzeParticle(){
 			i--;
 		}
 	}
+	int maxIndex = 0;
+	float currentMaxSize = 0;
+	for (unsigned int i = 0; i < particleReport->size(); i++){
+		if (particleReport->at(i).particleArea > currentMaxSize)
+			maxIndex = i;
+	}
+	biggestParticle = particleReport->at(maxIndex);
 
 //	printf("New number of particles: %d\n", particleReport->size());
 
 }
-bool Vision::getParticleSide(){
-	for (unsigned int i = 0; i < particleReport->size(); i++){
+float Vision::getNormalized(){
+	return biggestParticle.center_mass_x_normalized;
+}
 
-	}
-	return true; //change later, keep for now
+float Vision::getDistance(){
+	float ratio = biggestParticle.boundingRect.width / binImg->GetWidth();
+	float distance = CONSTANT * (ratio * 10.0)/(.4333333);
+	return distance;
 }
 
 double Vision::getArea(){
