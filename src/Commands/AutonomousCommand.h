@@ -34,6 +34,7 @@ public:
 	void Aim();
 	void CrossNoFlapper();
 	void CrossWithFlapper();
+	bool CheckAccelerometer();
 
 	int positionDial;
 	int autonDial;
@@ -45,4 +46,3 @@ private:
 };
 
 #endif
-//todo: commit code
