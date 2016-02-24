@@ -26,40 +26,41 @@ MoveFlapper::MoveFlapper(): Command() {
 
 // Called just before this Command runs the first time
 void MoveFlapper::Initialize() {
-	if (RobotMap::flapperFlapperBottomLimit->Get()){
-		RobotMap::flapperFlapperEncoder->Reset();
-	}
+//	if (RobotMap::flapperFlapperBottomLimit->Get()){
+//		RobotMap::flapperFlapperEncoder->Reset();
+//	}
+	printf("MoveFlapper is Initialized");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void MoveFlapper::Execute() {
 	float FlapperYAxis = Robot::oi->getOperatorStick()->GetY();
-	if(RobotMap::flapperFlapperTopLimit->Get() == 1){
-		RobotMap::flapperFlapperEncoder->Reset();
-
-		if(FlapperYAxis > 0){
-			FlapperYAxis = 0;
-		}
-	}
-	if(RobotMap::flapperFlapperBottomLimit->Get() == 1 && FlapperYAxis < 0 ){
+	if(RobotMap::flapperFlapperTopLimit->Get()== 0 && Robot::oi->getOperatorStick()->GetY() > 0){
 		FlapperYAxis = 0;
-	}
-	if (RobotMap::flapperFlapperEncoder->Get() >= MAXENCODERVALUE && FlapperYAxis > 0){
-		FlapperYAxis = 0;
-	}
-	if (RobotMap::flapperFlapperEncoder->Get() <= 0 && FlapperYAxis < 0){
-		FlapperYAxis = 0;
-	}
+	};
+//	if(RobotMap::flapperFlapperBottomLimit->Get() > 0 && Robot::oi->getOperatorStick()->GetY() < 0){
+//			FlapperYAxis = 0;
+//	}
+//	if (RobotMap::flapperFlapperEncoder->Get() >= MAXENCODERVALUE && FlapperYAxis > 0){
+//		FlapperYAxis = 0;
+//	}
+//	if (RobotMap::flapperFlapperEncoder->Get() <= 0 && FlapperYAxis < 0){
+//		FlapperYAxis = 0;
+//	}
 //FIXME
+FlapperYAxis = FlapperYAxis * FLAPPERSENSITIVITY;
+RobotMap::flapperFlapperMotor->Set(FlapperYAxis);
+printf("Operator Y Axis");
+printf("%f \n ", Robot::oi->getOperatorStick()->GetY());
+printf("Flapper Y AXIS\n");
+printf("%f", FlapperYAxis);
+printf("limitswitches");
+printf("%d", RobotMap::flapperFlapperBottomLimit->Get());
+printf("%d", RobotMap::flapperFlapperTopLimit->Get());
+printf("joystick throttle: %f\n", Robot::oi->getOperatorStick()->GetThrottle());
 
-RobotMap::flapperFlapperMotor->Set(FlapperYAxis*FLAPPERSENSITIVITY);
-//printf("Operator Y Axis");
-//printf("%f", Robot::oi->getOperatorStick()->GetY());
-//printf("Flapper Y AXIS\n");
-//printf("%f", FlapperYAxis);
-
-double flapperMotorEncoder = RobotMap::flapperFlapperEncoder->Get();
-SmartDashboard::PutNumber("FlapperAngle",flapperMotorEncoder);
+//double flapperMotorEncoder = RobotMap::flapperFlapperEncoder->Get();
+//SmartDashboard::PutNumber("FlapperAngle",flapperMotorEncoder);
 }
 
 // Make this return true when this Command no longer needs to run execute()

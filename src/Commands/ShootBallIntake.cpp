@@ -31,6 +31,7 @@ void ShootBallIntake::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShootBallIntake::Execute() {
 	float intakeSpeed = Robot::oi->getOperatorStick()->GetZ();
+	printf("limit switch value: %d", RobotMap::ballIntakeIntakeLimit->Get());
 		float scaledIntake = (-.5*intakeSpeed)+.5;
 			RobotMap::ballIntakeShootMotor->Set(-scaledIntake);// turns on shoot motor to pull in ball
 			RobotMap::ballIntakeTreadMotor->Set(-scaledIntake);// turns on flapper tread motor to shoot ball
