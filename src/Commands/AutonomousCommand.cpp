@@ -61,6 +61,14 @@ AutonomousCommand::AutonomousCommand() {
 
 //	positionDial = RobotMap::driveTrainPositionSetter->GetValue();
 //	autonDial = RobotMap::driveTrainAutonDial->GetValue();
+//  POSITION/AUTON DIAL NOT HERE, SMARTDASHBOARD USED INSTEAD
+
+	SmartDashboard::PutNumber("Position", 0);
+	SmartDashboard::PutNumber("Autonomous Decision", 0);
+
+	SmartDashboard::PutNumber("Opposing Obstacle", 0);
+
+	SmartDashboard::PutBoolean("Target Right Goal", false);
 
 	positionDial = SmartDashboard::GetNumber("Position", 0);
 	autonDial = SmartDashboard::GetNumber("Autonomous Decision", 0);
