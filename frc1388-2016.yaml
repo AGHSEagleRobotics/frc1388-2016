@@ -253,7 +253,7 @@ Children:
           default: '0'
           name: Input Channel (Digital)
           validators: *id009
-          value: '17'
+          value: '5'
       Base: Limit Switch
       Name: FlapperTopLimit
     - Children: []
@@ -263,7 +263,7 @@ Children:
           default: '0'
           name: Input Channel (Digital)
           validators: *id009
-          value: '18'
+          value: '6'
       Base: Limit Switch
       Name: FlapperBottomLimit
     - Children: []
@@ -273,7 +273,7 @@ Children:
           default: '0'
           name: Channel A Channel (Digital)
           validators: *id011
-          value: '5'
+          value: '25'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Distance Per Pulse, validators: null, value: 1.0}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
@@ -295,7 +295,7 @@ Children:
           default: '0'
           name: Channel B Channel (Digital)
           validators: *id015
-          value: '4'
+          value: '24'
       Base: Quadrature Encoder
       Name: FlapperEncoder
     - Children: []

@@ -84,13 +84,13 @@ void RobotMap::init() {
     driveTraindriveGyro.reset(new AnalogGyro(0));
     lw->AddSensor("DriveTrain", "driveGyro", driveTraindriveGyro);
     driveTraindriveGyro->SetSensitivity(0.007);
-    flapperFlapperTopLimit.reset(new DigitalInput(17));
+    flapperFlapperTopLimit.reset(new DigitalInput(5));
     lw->AddSensor("Flapper", "FlapperTopLimit", flapperFlapperTopLimit);
     
-    flapperFlapperBottomLimit.reset(new DigitalInput(18));
+    flapperFlapperBottomLimit.reset(new DigitalInput(6));
     lw->AddSensor("Flapper", "FlapperBottomLimit", flapperFlapperBottomLimit);
     
-    flapperFlapperEncoder.reset(new Encoder(5, 4, false, Encoder::k4X));
+    flapperFlapperEncoder.reset(new Encoder(25, 24, false, Encoder::k4X));
     lw->AddSensor("Flapper", "FlapperEncoder", flapperFlapperEncoder);
     flapperFlapperEncoder->SetDistancePerPulse(1.0);
     flapperFlapperEncoder->SetPIDSourceType(PIDSourceType::kRate);
