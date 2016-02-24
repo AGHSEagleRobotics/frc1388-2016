@@ -25,9 +25,10 @@ MoveFlapper::MoveFlapper(): Command() {
 
 // Called just before this Command runs the first time
 void MoveFlapper::Initialize() {
-	if (RobotMap::flapperFlapperBottomLimit->Get()){
-		RobotMap::flapperFlapperEncoder->Reset();
-	}
+//	if (RobotMap::flapperFlapperBottomLimit->Get()){
+//		RobotMap::flapperFlapperEncoder->Reset();
+//	}
+	printf("MoveFlapper is Initialized");
 }
 
 // Called repeatedly when this Command is scheduled to run
