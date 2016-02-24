@@ -83,7 +83,7 @@ void RobotMap::init() {
     driveTraindriveGyro.reset(new AnalogGyro(0));
     lw->AddSensor("DriveTrain", "driveGyro", driveTraindriveGyro);
     driveTraindriveGyro->SetSensitivity(0.007);
-    flapperFlapperMotor.reset(new TalonSRX(6));
+    flapperFlapperMotor.reset(new TalonSRX(12));
     lw->AddActuator("Flapper", "FlapperMotor", std::static_pointer_cast<TalonSRX>(flapperFlapperMotor));
     
     flapperFlapperTopLimit.reset(new DigitalInput(17));
