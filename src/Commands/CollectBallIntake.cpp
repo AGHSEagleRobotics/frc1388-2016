@@ -32,15 +32,12 @@ void CollectBallIntake::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CollectBallIntake::Execute() {
 	float intakeSpeed = Robot::oi->getOperatorStick()->GetZ();
+	if( RobotMap::ballIntakeIntakeLimit->Get() == 0){
 	float scaledIntake = (-.5*intakeSpeed)+.5;
 		RobotMap::ballIntakeShootMotor->Set(scaledIntake);// turns on shoot motor to pull in ball
 		RobotMap::ballIntakeTreadMotor->Set(scaledIntake);// turns on tread motor on flapper pull in ball
-//		if (RobotMap::ballIntakeBallDetector->GetRangeInches() < 7.0)// turns off motors when ball is in
-//		{
-//			RobotMap::ballIntakeShootMotor->Set(0);
-//			RobotMap::ballIntakeTreadMotor->Set(0);
-//		}
 	}
+}
 
 // Make this return true when this Command no longer needs to run execute()
 bool CollectBallIntake::IsFinished() {
