@@ -43,12 +43,12 @@ void MoveFlapper::Execute() {
 	if(RobotMap::flapperFlapperBottomLimit->Get() == 1 && FlapperYAxis < 0 ){
 		FlapperYAxis = 0;
 	}
-	if (RobotMap::flapperFlapperEncoder->Get() >= MAXENCODERVALUE && FlapperYAxis > 0){
-		FlapperYAxis = 0;
-	}
-	if (RobotMap::flapperFlapperEncoder->Get() <= 0 && FlapperYAxis < 0){
-		FlapperYAxis = 0;
-	}
+//	if (RobotMap::flapperFlapperEncoder->Get() >= MAXENCODERVALUE && FlapperYAxis > 0){
+//		FlapperYAxis = 0;
+//	}
+//	if (RobotMap::flapperFlapperEncoder->Get() <= 0 && FlapperYAxis < 0){
+//		FlapperYAxis = 0;
+//	}
 //FIXME
 
 RobotMap::flapperFlapperMotor->Set(FlapperYAxis*FLAPPERSENSITIVITY);
@@ -57,8 +57,8 @@ printf("%f", Robot::oi->getOperatorStick()->GetY());
 printf("Flapper Y AXIS\n");
 printf("%f", FlapperYAxis);
 
-double flapperMotorEncoder = RobotMap::flapperFlapperEncoder->Get();
-SmartDashboard::PutNumber("FlapperAngle",flapperMotorEncoder);
+//double flapperMotorEncoder = RobotMap::flapperFlapperEncoder->Get();
+//SmartDashboard::PutNumber("FlapperAngle",flapperMotorEncoder);
 }
 
 // Make this return true when this Command no longer needs to run execute()
