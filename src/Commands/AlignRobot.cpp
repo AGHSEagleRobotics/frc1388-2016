@@ -25,15 +25,18 @@ AlignRobot::AlignRobot(): Command() {
 
 // Called just before this Command runs the first time
 void AlignRobot::Initialize() {
+	currentNormalizedX = 1;
 	visi.setupCamera();
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AlignRobot::Execute() {
+	printf("Execute \n ");
 	visi.AnalyzeParticle();
 	currentNormalizedX = visi.getNormalized();
-	RobotMap::driveTrainRobotDrive41->TankDrive(currentNormalizedX, -currentNormalizedX);
+	printf("CurrentNormalizedX : %f \n", currentNormalizedX);
+	//RobotMap::driveTrainRobotDrive41->TankDrive(currentNormalizedX, -currentNormalizedX);
 	//Because normalizedX is on [-1,1], it can directly be used as motor input. Furthermore, as we get closer to the target
 	//the robot slows down.
 }
