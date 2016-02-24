@@ -30,10 +30,12 @@ void ShootBallIntake::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ShootBallIntake::Execute() {
+	if(RobotMap::ballIntakeIntakeLimit->Get() == 1){
 	float throttleSpeed = Robot::oi->getOperatorStick()->GetThrottle();
 		float scaledThrottle = (-.5*throttleSpeed)+.5;
 			RobotMap::ballIntakeShootMotor->Set(scaledThrottle);// turns on shoot motor to pull in ball
 			RobotMap::ballIntakeTreadMotor->Set(scaledThrottle);// turns on flapper tread motor to shoot ball
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
