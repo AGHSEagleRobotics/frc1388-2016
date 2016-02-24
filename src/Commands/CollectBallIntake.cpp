@@ -25,20 +25,18 @@ CollectBallIntake::CollectBallIntake(): Command() {
 
 // Called just before this Command runs the first time
 void CollectBallIntake::Initialize() {
-	//RobotMap::ballIntakePrepMotor->Set(1.0);// starts lowering intake
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void CollectBallIntake::Execute() {
 	float intakeSpeed = Robot::oi->getOperatorStick()->GetZ();
-	printf("limit switch value: %d", RobotMap::ballIntakeIntakeLimit->Get());
-	//if( RobotMap::ballIntakeIntakeLimit->Get() == 0){
-	float scaledIntake = (-.5*intakeSpeed)+.5;
-		RobotMap::ballIntakeShootMotor->Set(scaledIntake);// turns on shoot motor to pull in ball
-		RobotMap::ballIntakeTreadMotor->Set(scaledIntake);// turns on tread motor on flapper pull in ball
-
-	//}
+		printf("limit switch value: %d", RobotMap::ballIntakeIntakeLimit->Get());
+		if( RobotMap::ballIntakeIntakeLimit->Get() == 0){
+		float scaledIntake = (-.5*intakeSpeed)+.5;
+			RobotMap::ballIntakeShootMotor->Set(scaledIntake);// turns on shoot motor to pull in ball
+			RobotMap::ballIntakeTreadMotor->Set(scaledIntake);// turns on tread motor on flapper pull in ball
+		}
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -49,12 +47,10 @@ bool CollectBallIntake::IsFinished() {
 // Called once after isFinished returns true
 void CollectBallIntake::End() {
 
-
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void CollectBallIntake::Interrupted() {
-	End();
 
 }
