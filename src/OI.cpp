@@ -18,6 +18,7 @@
 #include "Commands/AutonTurn.h"
 #include "Commands/AutonomousCommand.h"
 #include "Commands/CollectBallIntake.h"
+#include "Commands/DefaultIntake.h"
 #include "Commands/Drive.h"
 #include "Commands/FlapperHighSetpoint.h"
 #include "Commands/FlapperLowSetpoint.h"
@@ -37,17 +38,17 @@ OI::OI() {
     
     operatorStick.reset(new Joystick(2));
     
-    stopBallOut.reset(new JoystickButton(operatorStick.get(), 1));
+    stopBallOut.reset(new JoystickButton(operatorStick.get(), 2));
     stopBallOut->WhenReleased(new StopBallntake());
-    stopBallIn.reset(new JoystickButton(operatorStick.get(), 2));
+    stopBallIn.reset(new JoystickButton(operatorStick.get(), 1));
     stopBallIn->WhenReleased(new StopBallntake());
-    flapperLowSetpointButton.reset(new JoystickButton(operatorStick.get(), 3));
-    flapperLowSetpointButton->WhenPressed(new FlapperLowSetpoint(0));
     flapperHighSetpointButton.reset(new JoystickButton(operatorStick.get(), 5));
     flapperHighSetpointButton->WhenPressed(new FlapperHighSetpoint(0));
-    ballOut.reset(new JoystickButton(operatorStick.get(), 1));
+    flapperLowSetpointButton.reset(new JoystickButton(operatorStick.get(), 3));
+    flapperLowSetpointButton->WhenPressed(new FlapperLowSetpoint(0));
+    ballOut.reset(new JoystickButton(operatorStick.get(), 2));
     ballOut->WhenPressed(new ShootBallIntake());
-    ballIn.reset(new JoystickButton(operatorStick.get(), 2));
+    ballIn.reset(new JoystickButton(operatorStick.get(), 1));
     ballIn->WhenPressed(new CollectBallIntake());
 
     // SmartDashboard Buttons
