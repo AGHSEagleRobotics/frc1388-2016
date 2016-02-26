@@ -191,7 +191,7 @@ Children:
           default: '0'
           name: Channel A Channel (Digital)
           validators: &id011 [DigitalChannel]
-          value: '2'
+          value: '3'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Distance Per Pulse, validators: null, value: 0.005}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
@@ -215,7 +215,7 @@ Children:
           default: '0'
           name: Channel B Channel (Digital)
           validators: &id015 [DigitalChannel]
-          value: '3'
+          value: '4'
       Base: Quadrature Encoder
       Name: driveEncoder
     - Children: []
@@ -253,7 +253,7 @@ Children:
           default: '0'
           name: Input Channel (Digital)
           validators: *id009
-          value: '5'
+          value: '10'
       Base: Limit Switch
       Name: FlapperTopLimit
     - Children: []
@@ -826,7 +826,7 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\dphey\workspace',
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Owner\workspace',
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\workspace'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
@@ -845,7 +845,7 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\dphey\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Owner\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Eagle
       Robotics'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,

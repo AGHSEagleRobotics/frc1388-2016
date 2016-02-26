@@ -29,7 +29,7 @@ void MoveFlapper::Initialize() {
 //	if (RobotMap::flapperFlapperBottomLimit->Get()){
 //		RobotMap::flapperFlapperEncoder->Reset();
 //	}
-	printf("MoveFlapper is Initialized");
+//	printf("MoveFlapper is Initialized");
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -50,14 +50,14 @@ void MoveFlapper::Execute() {
 //FIXME
 FlapperYAxis = FlapperYAxis * FLAPPERSENSITIVITY;
 RobotMap::flapperFlapperMotor->Set(FlapperYAxis);
-printf("Operator Y Axis");
-printf("%f \n ", Robot::oi->getOperatorStick()->GetY());
-printf("Flapper Y AXIS\n");
-printf("%f", FlapperYAxis);
-printf("limitswitches");
-printf("%d", RobotMap::flapperFlapperBottomLimit->Get());
-printf("%d", RobotMap::flapperFlapperTopLimit->Get());
-printf("joystick throttle: %f\n", Robot::oi->getOperatorStick()->GetThrottle());
+//printf("Operator Y Axis");
+//printf("%f \n ", Robot::oi->getOperatorStick()->GetY());
+//printf("Flapper Y AXIS\n");
+//printf("%f", FlapperYAxis);
+//printf("limitswitches");
+//printf("%d", RobotMap::flapperFlapperBottomLimit->Get());
+//printf("%d", RobotMap::flapperFlapperTopLimit->Get());
+//printf("joystick throttle: %f\n", Robot::oi->getOperatorStick()->GetThrottle());
 
 //double flapperMotorEncoder = RobotMap::flapperFlapperEncoder->Get();
 //SmartDashboard::PutNumber("FlapperAngle",flapperMotorEncoder);

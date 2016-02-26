@@ -77,14 +77,14 @@ void RobotMap::init() {
 
         driveTrainRobotDrive41->SetInvertedMotor(RobotDrive::kFrontRightMotor, true);
         driveTrainRobotDrive41->SetInvertedMotor(RobotDrive::kRearRightMotor, true);
-    driveTraindriveEncoder.reset(new Encoder(2, 3, false, Encoder::k4X));
+    driveTraindriveEncoder.reset(new Encoder(3, 4, false, Encoder::k4X));
     lw->AddSensor("DriveTrain", "driveEncoder", driveTraindriveEncoder);
     driveTraindriveEncoder->SetDistancePerPulse(0.005);
     driveTraindriveEncoder->SetPIDSourceType(PIDSourceType::kRate);
     driveTraindriveGyro.reset(new AnalogGyro(0));
     lw->AddSensor("DriveTrain", "driveGyro", driveTraindriveGyro);
     driveTraindriveGyro->SetSensitivity(0.007);
-    flapperFlapperTopLimit.reset(new DigitalInput(5));
+    flapperFlapperTopLimit.reset(new DigitalInput(10));
     lw->AddSensor("Flapper", "FlapperTopLimit", flapperFlapperTopLimit);
     
     flapperFlapperBottomLimit.reset(new DigitalInput(6));
