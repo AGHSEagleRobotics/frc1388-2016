@@ -62,10 +62,12 @@ AutonomousCommand::AutonomousCommand() {
 //	positionDial = RobotMap::driveTrainPositionSetter->GetValue();
 //	autonDial = RobotMap::driveTrainAutonDial->GetValue();
 
-	positionDial = SmartDashboard::GetNumber("Position", 0);
-	autonDial = SmartDashboard::GetNumber("Autonomous Decision", 0);
+	positionDial = SmartDashboard::GetNumber("Position", 0.0);
+	autonDial = SmartDashboard::GetNumber("Autonomous Decision", 0.0);
 
-	obstacle = SmartDashboard::GetNumber("Opposing Obstacle", 0);
+	obstacle = SmartDashboard::GetNumber("Opposing Obstacle", 0.0);
+
+//	autonDial = 0;
 
 	switch (autonDial){
 
@@ -98,8 +100,9 @@ bool AutonomousCommand::CheckAccelerometer(){
 
 	if(toAdd < 20){
 		toAdd++;
+	}else{
+		toAdd = 0;
 	}
-	toAdd = 0;
 
 	accelHist.at(toAdd) = fabs(RobotMap::driveTrainAccelerometer->GetZ() - 1);
 
