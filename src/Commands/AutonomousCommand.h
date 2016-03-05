@@ -36,9 +36,9 @@ public:
 	void CrossWithFlapper();
 	bool CheckAccelerometer();
 
-	int positionDial;
-	int autonDial;
-	int obstacle;
+	double positionDial;
+	double autonDial;
+	double obstacle;
 
 
 private:

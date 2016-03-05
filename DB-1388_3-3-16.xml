@@ -29,6 +29,7 @@
 		<location x="6" y="26"/>
 		<width>218</width>
 		<height>203</height>
+		<property name="Camera IP Address or mDNS name" value="169.254.223.9"/>
 	</static-widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.RobotPreferences">
 		<location x="234" y="29"/>
@@ -37,4 +38,5 @@
 </dashboard>
 <live-window>
 </live-window>
+	<hidden field="Test"/>
 </xml>

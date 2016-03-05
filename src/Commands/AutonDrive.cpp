@@ -37,7 +37,7 @@ void AutonDrive::Execute() {
 	m_currentDistance = RobotMap::driveTraindriveEncoder->GetDistance();
 	float offset = m_goalDistance - m_currentDistance;
 	float power = P_VALUE * offset;
-	printf("power = %f\n" , power);
+//	printf("power = %f\n" , power);
 	power /= 2.0;
 	if(fabs(power) < 0.2){
 		power = 0;

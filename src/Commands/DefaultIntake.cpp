@@ -30,7 +30,7 @@ void DefaultIntake::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DefaultIntake::Execute() {
-	RobotMap::ballIntakeShootMotor->Set(0.25); //This sets the motor to a default magnitude so ball doesn't fall out
+	RobotMap::ballIntakeShootMotor->Set(0.0); //This sets the motor to a default magnitude so ball doesn't fall out
 }
 
 // Make this return true when this Command no longer needs to run execute()

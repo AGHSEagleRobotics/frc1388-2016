@@ -35,9 +35,6 @@ void MoveFlapper::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void MoveFlapper::Execute() {
 	float FlapperYAxis = Robot::oi->getOperatorStick()->GetY();
-	if(RobotMap::flapperFlapperTopLimit->Get()== 0 && Robot::oi->getOperatorStick()->GetY() > 0){
-		FlapperYAxis = 0;
-	};
 //	if(RobotMap::flapperFlapperBottomLimit->Get() > 0 && Robot::oi->getOperatorStick()->GetY() < 0){
 //			FlapperYAxis = 0;
 //	}
@@ -48,8 +45,23 @@ void MoveFlapper::Execute() {
 //		FlapperYAxis = 0;
 //	}
 //FIXME
-FlapperYAxis = FlapperYAxis * FLAPPERSENSITIVITY;
-RobotMap::flapperFlapperMotor->Set(FlapperYAxis);
+
+	FlapperYAxis = FlapperYAxis * FLAPPERSENSITIVITY;
+
+	if(Robot::oi->getOperatorStick()->GetRawButton(4) == true){
+		FlapperYAxis = FlapperYAxis + (0.35 * std::copysign(1.0, FlapperYAxis));
+	}
+
+	if(RobotMap::flapperFlapperTopLimit->Get() == 0 && Robot::oi->getOperatorStick()->GetY() > 0){
+		FlapperYAxis = 0;
+	}
+
+	if(RobotMap::flapperFlapperBottomLimit->Get() == 0 && Robot::oi->getOperatorStick()->GetY() < 0){
+		FlapperYAxis = 0;
+	}
+
+
+	RobotMap::flapperFlapperMotor->Set(FlapperYAxis);
 //printf("Operator Y Axis");
 //printf("%f \n ", Robot::oi->getOperatorStick()->GetY());
 //printf("Flapper Y AXIS\n");
