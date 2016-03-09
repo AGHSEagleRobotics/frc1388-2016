@@ -1,7 +1,64 @@
 <xml version="1.0">
 <dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="572" y="221"/>
+		<height>15</height>
+		<property name="Text" value="2: Sally Port"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="572" y="205"/>
+		<property name="Text" value="1: Drawbridge"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="573" y="189"/>
+		<property name="Text" value="0: Portcullis"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="273" y="185"/>
+		<property name="Text" value="Positions: | 0 | 1 | 2 | 3 | 4 |"/>
+	</static-widget>
+	<widget field="Opposing Obstacle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="529" y="155"/>
+	</widget>
+	<widget field="Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="237" y="156"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="276" y="133"/>
+		<property name="Text" value="5: Cross (Obstacle w/ Flapper)"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="277" y="89"/>
+		<property name="Text" value="2: Cross & Aim (Obstacle w/o Flapper)"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="276" y="104"/>
+		<property name="Text" value="3: Cross & Aim (Obstacle w/ Flapper)"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="276" y="118"/>
+		<property name="Text" value="4: Cross (Obstacle w/o Flapper)"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="277" y="74"/>
+		<property name="Text" value="1: Approach"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="278" y="60"/>
+		<property name="Text" value="0: Do nothing"/>
+	</static-widget>
+	<widget field="Flapper Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="556" y="30"/>
+		<height>22</height>
+		<property name="Editable" value="false"/>
+		<property name="Background" value="0.255.255.255"/>
+	</widget>
+	<widget field="Autonomous Decision" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="237" y="33"/>
+		<width>196</width>
+	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Image">
-		<location x="-118" y="293"/>
+		<location x="-97" y="281"/>
 		<width>854</width>
 		<height>128</height>
 		<property name="Image File" value="C:\workspace\frc1388-2016\DashboardImage.jpg"/>
@@ -31,12 +88,7 @@
 		<height>203</height>
 		<property name="Camera IP Address or mDNS name" value="169.254.223.9"/>
 	</static-widget>
-	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.RobotPreferences">
-		<location x="234" y="29"/>
-		<width>367</width>
-	</static-widget>
 </dashboard>
 <live-window>
 </live-window>
-	<hidden field="Test"/>
 </xml>

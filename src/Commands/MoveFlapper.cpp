@@ -62,6 +62,8 @@ void MoveFlapper::Execute() {
 
 
 	RobotMap::flapperFlapperMotor->Set(FlapperYAxis);
+
+	SmartDashboard::PutNumber("Flapper Angle", RobotMap::flapperFlapperMotor->GetSetpoint());
 //printf("Operator Y Axis");
 //printf("%f \n ", Robot::oi->getOperatorStick()->GetY());
 //printf("Flapper Y AXIS\n");

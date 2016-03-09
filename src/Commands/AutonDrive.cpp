@@ -42,9 +42,9 @@ void AutonDrive::Execute() {
 	if(fabs(power) < 0.2){
 		power = 0;
 	}
-	if(fabs(power) > 0.7){
-		power = 0.7;
-	}
+//	if(fabs(power) > 0.7){
+//		power = 0.7;
+//	}
 	//Phillip, we changed this because it was creating an error: goalDistance --> m_goalDistance
 	//Tell us if this is incorrect - Tommy & Elliott
 	RobotMap::driveTrainRobotDrive41->TankDrive(-power, -power);
