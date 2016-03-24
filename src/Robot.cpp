@@ -48,6 +48,11 @@ void Robot::RobotInit() {
 	SmartDashboard::PutNumber("Position", 0.0);
 	SmartDashboard::PutNumber("Opposing Obstacle", 0.0);
 
+	if(RobotMap::ballIntakeIntakeLimit){
+		SmartDashboard::PutString("Intake Status", "Ball IS in intake");
+	}else{
+		SmartDashboard::PutString("Intake Status", "Ball is NOT in intake");
+	}
    // Display code version
 //   printf("Git version: %s   %s   %s\n", GIT_VERSION, GIT_TAG, GIT_DATE);
 //   printf("Built:  %s %s\n", BUILD_DATE, BUILD_TIME);
