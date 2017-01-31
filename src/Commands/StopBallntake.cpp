@@ -25,8 +25,8 @@ StopBallntake::StopBallntake(): Command() {
 
 // Called just before this Command runs the first time
 void StopBallntake::Initialize() {
-	RobotMap::ballIntakeShootMotor->Set(0);//stops intake shoot motor
-	RobotMap::ballIntakeTreadMotor->Set(0);//stops flapper tread motor
+	RobotMap::ballIntakeShootMotor->Set((double) 0);//stops intake shoot motor
+	RobotMap::ballIntakeTreadMotor->Set((double) 0);//stops flapper tread motor
 }
 
 // Called repeatedly when this Command is scheduled to run
